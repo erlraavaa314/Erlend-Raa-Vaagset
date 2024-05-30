@@ -1,0 +1,296 @@
+/* Base styles and resets */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Light gray */
+    font-family: 'Arial', sans-serif; /* Consistent typography */
+    background-image: url('../textures/paper.png'); /* Decorative background */
+    background-size: 500px;
+    background-repeat: repeat;
+    overflow-x: hidden; /* Avoid horizontal scrolling */
+}
+
+/* Layout containers */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+header {
+    display: block;
+    /* justify-content: flex-start; */ /* Remove this line */
+    padding: 30px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-align: left; /* Center align the menu */
+}
+
+.logo {
+    display: block; /* Display as block-level element */
+    margin-top: 10px; /* Add some space between logo and menu */
+    text-align: center; /* Right-align the logo text */
+}
+
+.menu {
+    float: left;
+    width: 100%;
+}
+
+nav {
+    width: auto; /* Adjust as necessary based on content size */
+}
+/* Existing styles... keep as is and add the following new styles at the end of your CSS file */
+/* Base Navigation Styles */
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;  /* Ensures there's no default margin */
+    display: block; /* Makes the ul take up the full width of the nav */
+}
+
+nav li {
+    display: inline-block; /* Optional: if you want each item to be inline */
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    text-decoration: none;
+}
+
+nav ul li:hover > a {
+    background-color: #367c39; /* Darker green on hover */
+}
+/* Second Level Dropdown */
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position the second-level dropdown below its parent menu item */
+    left: 0; /* Align the second-level dropdown with the left of its parent menu item */
+    background-color: #4CAF50;
+    padding: 0;
+    z-index: 1000;
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+/* Third Level Dropdown */
+nav ul ul ul {
+    display: none;
+    position: absolute;
+    top: 0; /* Align the top of the third-level dropdown with the top of the second-level dropdown */
+    left: 100%; /* Position the third-level dropdown to the right of the second-level dropdown */
+    margin-top: -40px; /* Adjust this value based on your menu item height to align with the first item on the second level */
+}
+
+/* Show Submenu on Hover */
+nav ul li:hover > ul {
+    display: block; /* Only show submenu when parent li is hovered */
+}
+
+nav ul ul li {
+    display: block; /* Dropdown items displayed as block */
+}
+
+nav ul ul li a {
+    padding: 10px;
+    color: white; /* Keep text color consistent */
+    text-decoration: none;
+}
+
+nav ul ul li a:hover {
+    background-color: #367c39; /* Darker green on hover */
+}
+
+/* Responsive design adjustments */
+@media only screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        width: 100%;
+        order: 2;
+        margin-left: 0; /* Reset margin for mobile layout */
+        margin-top: 10px; /* Add margin to separate from heading */
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        text-align: left;
+        padding: 10px 0;
+    }
+}
+
+/* Section styles */
+section {
+    flex-grow: 1; /* Expand to fill remaining space */
+    padding: 40px;
+    max-width: 1000px; /* Set maximum width for the text content */
+    margin: 0 auto; /* Center the section horizontally */
+    background-image: url('../textures/paper.png'); /* Use paper.png as background image */
+    background-size: 400px; /* Shrink the background image */
+    background-repeat: repeat; /* Repeat the background image */
+    background-clip: padding-box; /* Clip the background to the padding box */
+}
+h2 {
+    color: #4CAF50; /* Green */
+    margin-top: 0;
+}
+
+h3 {
+    color: #4CAF50; /* Green */
+    margin-top: 0;
+}
+
+h4 {
+    color: #4CAF50; /* Green */
+    margin-top: 0;
+}
+
+h5 {
+    color: #4CAF50; /* Green */
+    margin-top: 0;
+}
+
+section p {
+    font-size: 16px; /* Medium font size */
+    line-height: 1.6; /* Medium line height */
+}
+
+/* Footer styles */
+footer {
+    background-color: #333333; /* Dark gray */
+    color: #ffffff; /* White text color */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Anchor styles */
+a {
+    color: #4CAF50; /* Green */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+figure {
+    text-align: center; /* Center the figure */
+}
+
+figcaption {
+    font-style: italic; /* Italicize the caption */
+}
+
+/* Image styles */
+img {
+    position: relative; /* Required to make z-index effective */
+    width: 100%; /* Set the width to 100% */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+    display: block; /* Ensures the image behaves as a block element */
+    padding: 0px; /* No padding needed */
+    border-radius: 5px; /* Rounded corners to match content blocks */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Increased depth and visibility of shadow */
+    border: 2px solid #8A9A5B; /* Matching the left border style, applied all around */
+    margin-bottom: 20px; /* Consistent spacing with content blocks */
+    z-index: 1; /* Higher z-index to ensure image is on top */
+}
+
+/* Button styles */
+button {
+    background-color: #4CAF50; /* Green */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 12px 24px; /* Increased padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px; /* Increased font size */
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Additional Styles for content blocks */
+section .content {
+    display: block;
+    padding: 20px;
+    background-color: rgba(245, 245, 220, 0.8); /* Semi-transparent warm beige, mimicking cream */
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Increased depth and visibility of shadow */
+    margin-bottom: 20px;
+    border-left: 4px solid #8A9A5B; /* Soft Sage Green for a subtle highlight */
+}
+
+section:hover .content {
+    background-color: rgba(245, 245, 235, 0.95); /* Slightly lighter on hover */
+}
+
+section .content.show {
+    display: block;
+}
+section h2 {
+    cursor: pointer;
+}
+section .container {
+    overflow: hidden;
+    max-height: 1000px; /* Set a max height for smooth animation */
+    transition: max-height 0.3s ease-out; /* Add transition for smooth animation */
+}
+
+/* Ensure that headings are left-aligned within the fixed width */
+section {
+    max-width: 1000px; /* Adjust this value to match your fixed width */
+    min-width: 1000px;
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+section h2 {
+    margin-top: 0;
+    margin-bottom: 20px; /* Add margin at the bottom */
+    text-align: left; /* Ensure headings are left-aligned */
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        padding: 15px;
+        margin: 15px 10px;
+    }
+}
+
+/* Style for headers to indicate they are clickable */
+section h2 {
+    cursor: pointer; /* Shows a pointer icon on hover to indicate interactivity */
+    background-color: #4CAF50; /* Green background */
+    color: #ffffff; /* White text for visibility */
+    padding: 10px; /* Adds padding for a better click target area */
+    margin-top: 0;
+    border-radius: 5px; /* Rounded corners for aesthetics */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Increased depth and visibility of shadow */
+}
+
+section h2:hover {
+    background-color: #367c39; /* Darker shade on hover for feedback */
+}
+

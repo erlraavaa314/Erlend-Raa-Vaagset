@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penrose Tiling Banner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <div class="banner">
+        <canvas id="penroseCanvas"></canvas>
+    </div>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .banner {
+            width: 100%;
+            height: 300px; /* Adjust height as needed */
+            position: relative;
+            overflow: hidden;
+        }
+
+        canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+    <script>
+
+/*
+ * @name Colored Penrose Tiles
+ * @arialabel A long penrose tile pattern is created with four different colors
+ * @frame 400, 710
+ * @description This is a modified version of the "Penrose Tile" example using a custom color palette and a long banner
+ */
+
+let ds;
+
+// Define colors
+let colors = ['#004d99', '#ffffcc', '#ccffcc', '#f0f0f0'];
+let currentColorIndex = 0;
+
+function setup() {
+  createCanvas(400, 710); // Adjusted canvas dimensions for a long banner
+  ds = new PenroseLSystem();
+  ds.simulate(5);
+}
+
+function draw() {
+  background(255);
+  ds.render();
+}
+
+function PenroseLSystem() {
+  this.steps = 0;
+
+  // Axiom and rules for the Penrose rhombus L-system
+  this.axiom = "[X]++[X]++[X]++[X]++[X]";
+  this.ruleW = "YF++ZF----XF[-YF----WF]++";
+  this.ruleX = "+YF--ZF[---WF--XF]+";
+  this.ruleY = "-WF++XF[+++YF++ZF]-";
+  this.ruleZ = "--YF++++WF[+ZF++++XF]--XF";
+
+  this.startLength = 320.0; // Adjusted starting length for a long banner
+  this.theta = TWO_PI / 10.0;
+  this.reset();
+}
+
+PenroseLSystem.prototype.simulate = function (gen) {
+  while (this.getAge() < gen) {
+    this.iterate(this.production);
+  }
+}
+
+PenroseLSystem.prototype.reset = function () {
+  this.production = this.axiom;
+  this.drawLength = this.startLength;
+  this.generations = 0;
+}
+
+PenroseLSystem.prototype.getAge = function () {
+  return this.generations;
+}
+
+PenroseLSystem.prototype.iterate = function() {
+  let newProduction = "";
+
+  for(let i = 0; i < this.production.length; ++i) {
+    let step = this.production.charAt(i);
+
+    if (step == 'W') {
+      newProduction += this.ruleW;
+    }
+    else if (step == 'X') {
+      newProduction += this.ruleX;
+    }
+    else if (step == 'Y') {
+      newProduction += this.ruleY;
+    }
+    else if (step == 'Z') {
+      newProduction += this.ruleZ;
+    }
+    else {
+      if (step != 'F') {
+        newProduction += step;
+      }
+    }
+  }
+
+  this.drawLength *= 0.5;
+  this.generations++;
+  this.production = newProduction;
+}
+
+PenroseLSystem.prototype.render = function () {
+  translate(width / 2, height / 2);
+
+  this.steps += 20;
+  if(this.steps > this.production.length) {
+    this.steps = this.production.length;
+  }
+
+  for(let i = 0; i < this.steps; ++i) {
+    let step = this.production.charAt(i);
+
+    if( step == 'F') {
+      stroke(colors[currentColorIndex]);
+      fill(colors[currentColorIndex]);
+      for(let j = 0; j < this.repeats; j++) {
+        line(0, 0, 0, -this.drawLength);
+        noFill();
+        translate(0, -this.drawLength);
+      }
+      this.repeats = 1;
+    }
+    else if (step == '+') {
+      rotate(this.theta);
+    }
+    else if (step == '-') {
+      rotate(-this.theta);
+    }
+    else if (step == '[') {
+      push();
+    }
+    else if (step == ']') {
+      pop();
+    }
+  }
+  currentColorIndex = (currentColorIndex + 1) % colors.length; // Cycle through colors
+}
+</script>
+</body>
+</html>
