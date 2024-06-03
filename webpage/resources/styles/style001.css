@@ -319,6 +319,17 @@ section h2:hover {
     nav ul li a {
         padding: 15px 20px; /* Larger padding for easier touch */
     }
+    
+}
+
+@media only screen and (max-width: 768px) {
+    section {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+    .container, section, footer {
+        padding-left: 10px;
+        padding-right: 10px; /* Add padding to avoid text touching the edges */
+    }
 }
 
 /* Improve interactive element sizes */
