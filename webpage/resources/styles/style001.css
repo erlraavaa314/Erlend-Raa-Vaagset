@@ -239,7 +239,6 @@ section .container {
 /* Ensure that headings are left-aligned within the fixed width */
 section {
     max-width: 1000px; /* Adjust this value to match your fixed width */
-    min-width: 1000px;
     margin: 0 auto; /* Center the section horizontally */
 }
 
@@ -319,10 +318,15 @@ section h2:hover {
     nav ul li a {
         padding: 15px 20px; /* Larger padding for easier touch */
     }
-    
-}
 
-@media only screen and (max-width: 768px) {
+    /* Ensure the hamburger menu button is visible */
+    .menu-btn {
+        display: block; /* Ensure it's not hidden */
+        position: fixed; /* Keep it at a consistent spot */
+        top: 10px;
+        right: 10px;
+        z-index: 1001; /* Above all other content */
+
     section {
         padding: 20px; /* Reduce padding for smaller screens */
     }
@@ -330,7 +334,46 @@ section h2:hover {
         padding-left: 10px;
         padding-right: 10px; /* Add padding to avoid text touching the edges */
     }
+
+    .menu-btn {
+        display: block; /* Ensure it's not hidden */
+        position: fixed; /* Keep it at a consistent spot */
+        top: 10px;
+        right: 10px;
+        z-index: 1001; /* Above all other content */
+    }
+
+    .menu {
+        display: none; /* Hidden by default, shown when .active is added */
+        position: fixed; /* Fixed position to stay in view */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Full screen height */
+        background-color: #4CAF50; /* Background color */
+        z-index: 1000; /* High z-index but below the button */
+        overflow-y: auto; /* Allows scrolling */
+    }
+
+    section, .container {
+        padding: 0 15px; /* Adjust padding */
+        max-width: none; /* Override any max-width set */
+        min-width: 0; /* Ensure no minimum width is affecting layout */
+    }
+
+    /* Adjust background image for better performance and aesthetics */
+    body, section {
+        background-size: contain;
+        background-image: none; /* Optional: Remove background image if too distracting */
+    }
+
+    /* Adjust nav item layout */
+    nav ul li {
+        width: auto; /* Full width for each nav item */
+        margin: 0; /* Remove any margin if present */
+    }
 }
+
 
 /* Improve interactive element sizes */
 button, .menu-btn {
