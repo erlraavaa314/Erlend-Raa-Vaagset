@@ -15,8 +15,6 @@ $(document).ready(function() {
         });
     });
     
-    console.log("Script is running!");
-
     // Toggle visibility of content under each section when the header is clicked
     $("section h2").click(function() {
         console.log("Content visible");
@@ -37,14 +35,8 @@ $(document).ready(function() {
         event.stopPropagation(); // Prevents the event from bubbling up to the h2 click event
     });
 
-    // Hover event for all list items that have nested ul elements
-    $('.menu nav ul li').hover(function() {
-        var parentTop = $(this).position().top;
-        $(this).children('ul').css({
-            top: parentTop + 'px',
-            display: "block"
-        });
-    }, function() {
-        $(this).children('ul').css('display', 'none');
-    });
+    // Ensure that all menu items are always visible in the mobile menu, removing hover dependency
+    if ($(window).width() <= 768) {
+        $('.menu nav').show();  // Always show submenus on mobile
+    }
 });
