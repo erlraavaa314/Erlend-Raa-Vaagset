@@ -357,7 +357,7 @@ section h2:hover {
 
     /* Adjust font size for mobile */
     body, section p {
-        font-size: 14px; /* Smaller font size for mobile */
+        font-size: 12px; /* Smaller font size for mobile */
     }
 
     /* Adjust image side margins for mobile */
