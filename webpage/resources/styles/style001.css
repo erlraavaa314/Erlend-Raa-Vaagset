@@ -372,6 +372,81 @@ section h2:hover {
         width: auto; /* Full width for each nav item */
         margin: 0; /* Remove any margin if present */
     }
+
+    /* Hide the default navigation dropdown interactions */
+    .menu nav ul ul,
+    .menu nav ul ul ul {
+        display: block;
+        position: static;
+        width: 100%;
+        background-color: transparent; /* remove different background for sub-menus */
+        padding-left: 20px; /* indent sub-menu items */
+    }
+
+    .menu nav ul ul li,
+    .menu nav ul ul ul li {
+        display: block; /* each list item on its own line */
+    }
+
+    nav ul li {
+        display: block; /* Override any inline-block or similar styles */
+        width: 100%; /* each item takes full width */
+        padding: 10px 0; /* Provide some padding for touch targets */
+    }
+
+    nav ul li a {
+        display: block; /* links take full width for easier touch */
+        padding: 10px;
+        border-bottom: 1px solid #ddd; /* subtle separator for clarity */
+    }
+
+    .menu {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        background-color: #4CAF50; /* Green background */
+        z-index: 1049; /* Just below the button */
+        overflow-y: auto; /* For scrolling */
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        display: flex; /* Enables flexbox centering */
+    }
+
+
+    /* Menu Active State */
+    .menu.active {
+        display: flex; /* Flex to use centering from above */
+    }
+
+    /* Menu Items Styling */
+    nav ul {
+        list-style: none; /* Removes default list styling */
+        padding: 0;
+        text-align: center; /* Center-align the text */
+    }
+
+    nav ul li {
+        padding: 10px; /* Padding around each item */
+    }
+
+    nav ul li a {
+        color: #ffffff; /* White text for contrast */
+        text-decoration: none; /* Removes underline */
+        font-size: 18px; /* Larger font for readability */
+        display: block; /* Makes the whole area clickable */
+    }
+
+    .menu-btn {
+        display: block; /* Show menu button on mobile */
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1050; /* Ensure visibility over other elements */
+    }
 }
 
 .menu nav.active {
@@ -385,6 +460,14 @@ section h2:hover {
     z-index: 1050;  /* Ensure it's above other elements */
 }
 
+/* Additional styling for clarity and aesthetics */
+.menu-btn {
+    background-color: #4CAF50; /* Ensuring visibility */
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 20px; /* Increase size for visibility */
+}
 
 /* Improve interactive element sizes */
 button, .menu-btn {
