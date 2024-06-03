@@ -1,7 +1,19 @@
-$(document).ready(function(){
+$(document).ready(function() {
+    
+    $('.menu-btn').click(function() {
+        $('.menu nav').toggleClass('active');  // Only toggle the visibility of the <nav>
+        console.log("Navigation menu toggled");
+    });
     
     // Load navigation content
-    $("#nav-placeholder").load("../components/nav.html");
+    $("#nav-placeholder").load("../components/nav.html", function() {
+        // Once the navigation is loaded, bind the click event to the menu button
+        console.log("Navigation loaded");
+        $('.menu-btn').click(function() {
+            $('.menu').toggleClass('active');
+            console.log("Menu toggled");
+        });
+    });
     
     console.log("Script is running!");
 
@@ -21,31 +33,18 @@ $(document).ready(function(){
         }
         console.log("Content hidden");
         $(this).slideUp('slow');
-        // Update aria-expanded to false when the content is hidden by clicking on it
         $(this).prev("h2").attr("aria-expanded", "false");
         event.stopPropagation(); // Prevents the event from bubbling up to the h2 click event
     });
 
     // Hover event for all list items that have nested ul elements
     $('.menu nav ul li').hover(function() {
-        // Get the top position of this li relative to its offset parent
         var parentTop = $(this).position().top;
-
-        
-        console.log("Script is still running!");
-
-        // Apply this top position to the direct child ul (dropdown)
         $(this).children('ul').css({
-            top: parentTop + 'px', // Aligns the top of the dropdown with the top of the li
+            top: parentTop + 'px',
             display: "block"
         });
     }, function() {
-        // Hide the dropdown when not hovering
         $(this).children('ul').css('display', 'none');
-
     });
-});
-
-document.querySelector('.menu-btn').addEventListener('click', function() {
-    document.querySelector('.menu').classList.toggle('active');
 });
