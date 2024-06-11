@@ -117,7 +117,7 @@ nav ul ul li a:hover {
 /* Section styles */
 section {
     flex-grow: 1; /* Expand to fill remaining space */
-    padding: 40px;
+    padding: 10px;
     max-width: 1000px; /* Set maximum width for the text content */
     margin: 0 auto; /* Center the section horizontally */
     background-image: url('../textures/paper.png'); /* Use paper.png as background image */
@@ -267,8 +267,8 @@ section h2:hover {
 .menu-btn {
     display: none; /* Hide the menu button by default */
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     z-index: 1050;
     background-color: #4CAF50; /* Green background */
     color: white; /* White text */
@@ -373,4 +373,26 @@ section h2:hover {
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* Make h3 headings clickable and visually distinct */
+h3 {
+    cursor: pointer;
+    color: #4CAF50;
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Initial style for content boxes, hidden by default */
+.content-box {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
