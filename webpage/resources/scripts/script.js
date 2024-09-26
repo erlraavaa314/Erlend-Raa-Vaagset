@@ -33,4 +33,12 @@ $(document).ready(function() {
     if ($(window).width() <= 768) {
         $('.menu nav').show();  // Always show submenus on mobile
     }
+
+    $(document).ready(function() {
+        $('.menu-btn').click(function() {
+            $('.menu').toggleClass('active');
+        });
+    });
+
+    
 });

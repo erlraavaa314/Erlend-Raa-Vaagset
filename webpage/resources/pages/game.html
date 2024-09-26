@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modular Idle Coin Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .game-container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #shop {
+      margin-top: 30px;
+    }
+
+    #shop button {
+      margin-top: 5px;
+    }
+
+    #shop p {
+      margin: 5px 0;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .progress-fill {
+      height: 20px;
+      width: 0;
+      background-color: #76c7c0;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1>Modular Idle Coin Game</h1>
+    <p id="coins">Coins: 0</p>
+    <button id="clicker">Click for Coins</button>
+    
+    <div id="shop">
+      <h2>Upgrades</h2>
+      <p>Auto Clickers (10 coins each): <button id="buyAutoClicker">Buy</button> <span id="autoClickerCount">0</span> purchased</p>
+      <p>Click Multiplier (20 coins): <button id="buyClickMultiplier">Buy</button></p>
+      <p>Speed Booster (50 coins): <button id="buySpeedBooster">Buy</button></p>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <script>
+    // Game State Object
+    const gameState = {
+      coins: 0,
+      coinsPerClick: 1,
+      coinsPerSecond: 0,
+      autoClickerCount: 0, // Track number of auto-clickers
+      autoClickerSpeed: 1000, // Auto-clicker speed in ms (1 second)
+      upgrades: {}
+    };
+
+    // Class for Upgrades
+    class Upgrade {
+      constructor(name, cost, effect) {
+        this.name = name;
+        this.cost = cost;
+        this.effect = effect; // Effect function that modifies the game state
+      }
+
+      buy() {
+        if (gameState.coins >= this.cost) {
+          gameState.coins -= this.cost;
+          this.effect(); // Apply the effect of the upgrade
+          updateCoinsDisplay();
+        }
+      }
+    }
+
+    // Initialize upgrades
+    gameState.upgrades = {
+      autoClicker: new Upgrade('Auto Clicker', 10, () => {
+        gameState.coinsPerSecond += 1;
+        gameState.autoClickerCount += 1; // Increase count of auto clickers
+        updateAutoClickerCount();
+        activateAutoClicker();
+      }),
+      clickMultiplier: new Upgrade('Click Multiplier', 20, () => {
+        gameState.coinsPerClick *= 2;
+      }),
+      speedBooster: new Upgrade('Speed Booster', 50, () => {
+        gameState.autoClickerSpeed /= 2;
+        activateAutoClicker(); // Speed up existing auto clicker
+      })
+    };
+
+    // UI Updates
+    function updateCoinsDisplay() {
+      document.getElementById('coins').innerText = `Coins: ${gameState.coins}`;
+    }
+
+    function updateProgressBar() {
+      let progressBar = document.getElementById('progressFill');
+      let progress = 0;
+      let progressInterval = setInterval(() => {
+        progress += (gameState.coinsPerSecond / 100);
+        if (progress >= 100) {
+          progress = 0;
+          gameState.coins += 1;
+          updateCoinsDisplay();
+        }
+        progressBar.style.width = progress + '%';
+      }, 50);
+    }
+
+    function updateAutoClickerCount() {
+      document.getElementById('autoClickerCount').innerText = gameState.autoClickerCount;
+    }
+
+    // Auto Clicker Activation
+    function activateAutoClicker() {
+      clearInterval(gameState.autoClickerInterval); // Clear any existing interval
+      gameState.autoClickerInterval = setInterval(() => {
+        gameState.coins += gameState.coinsPerSecond;
+        updateCoinsDisplay();
+      }, gameState.autoClickerSpeed);
+    }
+
+    // Click Button Event
+    document.getElementById('clicker').addEventListener('click', () => {
+      gameState.coins += gameState.coinsPerClick;
+      updateCoinsDisplay();
+    });
+
+    // Buy Upgrade Events
+    document.getElementById('buyAutoClicker').addEventListener('click', () => {
+      gameState.upgrades.autoClicker.buy();
+    });
+
+    document.getElementById('buyClickMultiplier').addEventListener('click', () => {
+      gameState.upgrades.clickMultiplier.buy();
+    });
+
+    document.getElementById('buySpeedBooster').addEventListener('click', () => {
+      gameState.upgrades.speedBooster.buy();
+    });
+
+    // Initialize Game
+    updateCoinsDisplay();
+    updateProgressBar();
+
+  </script>
+</body>
+</html>
