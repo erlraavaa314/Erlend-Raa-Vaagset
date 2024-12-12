@@ -1,0 +1,467 @@
+/* 
+Velkommen til stilarket ditt! 
+Dette stilarket inneholder flere temaer (vår, sommer, høst, vinter) og lys/mørk modus. 
+Bruk CSS-variabler for å enkelt bytte mellom disse temaene ved å kommentere/avkommentere 
+eller bruke JavaScript senere. Vi kommer også til å se på småskjermtilpasning.
+*/
+
+/* 
+Global stil: Disse stilene gjelder for alle temaer. 
+CSS-variabler (f.eks. --primary-color) lar oss bytte farger enkelt. 
+Prøv å eksperimentere med ulike verdier for å se effektene.
+*/
+
+body {
+    font-family: 'Noto Sans JP', sans-serif; /* Definerer skrifttypen for hele siden */
+    margin: 0; /* Fjerner standard margin */
+    padding: 0; /* Fjerner standard padding */
+    line-height: 1.6; /* Setter linjehøyde for lesbarhet */
+    background-color: var(--background-color); /* Bruker variabelen for bakgrunnsfarge */
+    color: var(--text-color); /* Bruker variabelen for tekstfarge */
+    font-size: 18px; /* Adjust this value to make the text larger or smaller */
+}
+
+/* 
+Header: Denne delen styrer utseendet på navigasjonsmenyen øverst. 
+Her har vi definert bakgrunns- og tekstfarger ved hjelp av CSS-variabler.
+*/
+
+header {
+    width: 100%;
+    background-color: var(--primary-color); /* Header color from the selected theme */
+    color: var(--secondary-text-color);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Create the thin line at the top when scrolling down */
+body::before {
+    content: "";
+    position: fixed; /* Fixed position to keep the line at the top */
+    top: 0;
+    height: 15px; /* Height of the thin line */
+    background-color: var(--highlight-color); /* Match header or accent color */
+    width: 100%;
+    z-index: 1000; /* Ensure it's on top of the content */
+    display: block; /* Ensure it shows as a block element */
+}
+
+/* Ensure the rest of the page does not overlap with the thin line */
+body {
+    margin-top: 15px; /* Push content down so it's not hidden behind the line */
+}
+
+
+
+/* 
+Navigasjonsmeny: Her organiseres menyen som en horisontal liste.
+Vi fjerner punktmerkene og justerer plasseringen med inline visning.
+*/
+
+header nav ul {
+    list-style: none; /* Fjerner punktmerking på listen */
+    padding: 0; /* Ingen innvendig mellomrom rundt listen */
+}
+
+header nav ul li {
+    display: inline; /* Gjør hvert listeelement til inline, slik at de vises ved siden av hverandre */
+    margin: 0 10px; /* Legger til avstand mellom hvert menyelement */
+}
+
+header nav ul li a {
+    color: var(--secondary-text-color); /* Farger tekstlenkene */
+    text-decoration: none; /* Fjerner understreking på lenker */
+    font-size: 18px; /* Justerer tekststørrelsen */
+}
+
+header nav ul li a:hover {
+    text-decoration: underline; /* Understreker lenken ved hover for å gi interaktiv følelse */
+}
+
+/* 
+Hovedinnhold (main): Dette er hoveddelen av siden. 
+Vi legger til padding for avstand og sentraliserer innholdet ved å bruke margin.
+*/
+
+main {
+    padding: 20px; /* Legger til rom rundt hovedinnholdet */
+    max-width: 1000px; /* Setter maksimal bredde for hovedinnholdet */
+    margin: 0 auto; /* Sentraliserer innholdet horisontalt */
+}
+
+/* 
+Hjem-seksjon: Styrer utseendet på "hjem"-seksjonen. 
+Vi bruker variabler for farger og justerer padding.
+*/
+
+#home {
+    background-color: var(--highlight-color); /* Bakgrunnsfarge fra temaet */
+    padding: 20px; /* Gir avstand inne i seksjonen */
+    text-align: center; /* Sentraliserer teksten */
+}
+
+#home h1 {
+    font-size: 2.5rem; /* Stor overskrift */
+}
+
+/* 
+Om Meg-seksjonen: En enkel seksjon med liste og overskrift.
+Vi definerer marginer og farger for å tilpasse utseendet.
+*/
+
+#about {
+    margin: 40px 0; /* Legger til rom over og under denne seksjonen */
+}
+
+#about h2 {
+    font-size: 2rem; /* Setter størrelsen på overskriften */
+    color: var(--text-color); /* Tekstfarge fra temaet */
+}
+
+#about ul {
+    list-style-type: disc; /* Bruker punktmerking (disc) på listen */
+    padding-left: 20px; /* Innrykk for listeelementene */
+}
+
+/* 
+Prosjekter-seksjonen: 
+Her kan du eksperimentere med bakgrunnsfarger og kanter (borders).
+*/
+
+#projects {
+    margin: 40px 0; /* Rom over og under seksjonen */
+}
+
+#projects h2 {
+    font-size: 2rem;
+    color: var(--text-color); /* Bruker tekstfargen fra temaet */
+}
+
+#projectsContainer {
+    padding: 10px;
+    background-color: var(--background-color); /* Bruker bakgrunnsfargen fra temaet */
+    border: 1px solid var(--border-color); /* Setter ramme med variabel farge */
+}
+
+/* 
+Kontaktskjema: Justerer utseendet til inputfeltene og knappene.
+Vi bruker bredde og padding for å gi et jevnt, profesjonelt utseende.
+*/
+
+#contactForm input, #contactForm textarea {
+    padding: 10px; /* Avstand inne i input-feltene */
+    margin: 5px 0; /* Litt rom rundt feltene */
+    border: 1px solid var(--border-color); /* Kanter rundt feltene */
+    width: 100%; /* Feltene skal ta hele bredden av skjemaet */
+    box-sizing: border-box; /* Inkluderer padding i totalbredde (CSS-boksmodellen) */
+}
+
+#contactForm button {
+    padding: 10px; /* Avstand inne i knappen */
+    background-color: var(--button-color); /* Knappens bakgrunnsfarge */
+    color: var(--secondary-text-color); /* Tekstfarge på knappen */
+    border: none; /* Fjerner kantlinje rundt knappen */
+    cursor: pointer; /* Endrer musepekeren til en pekefinger når du svever over knappen */
+}
+
+#contactForm button:hover {
+    background-color: var(--button-hover-color); /* Endrer bakgrunnsfargen når knappen sveves over */
+}
+
+/* 
+Bunntekst (footer): Justerer stilen for bunnteksten nederst på siden.
+Den forblir fast nederst og har standard farger fra temaet.
+*/
+
+footer {
+    background-color: var(--primary-color); /* Bakgrunnsfarge fra temaet */
+    color: var(--secondary-text-color); /* Tekstfarge fra temaet */
+    text-align: center; /* Sentraliserer teksten */
+    padding: 10px 0; /* Litt padding over og under teksten */
+    position: fixed; /* Fester bunnteksten nederst på siden */
+    width: 100%; /* Gjør bunnteksten full bredde */
+    bottom: 0; /* Plasserer den på bunnen av siden */
+}
+
+/* 
+Responsiv design for mobil: Media queries justerer stilene for små skjermer. 
+Dette er viktig for å sikre at siden ser bra ut på mobile enheter.
+*/
+
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block; /* Gjør hvert menyelement til blokk for vertikal visning */
+        text-align: center; /* Sentraliserer hvert element */
+        margin: 10px 0; /* Legger til litt rom mellom hvert element */
+    }
+
+    #home h1 {
+        font-size: 2rem; /* Justerer størrelsen på overskriften for små skjermer */
+    }
+
+    main {
+        padding: 10px; /* Reduserer padding for små skjermer */
+    }
+}
+
+/* 
+---- Sesongbaserte temaer ----
+Velg et tema ved å fjerne kommentartegnene. 
+Eksperimenter med fargene og tilpass dem slik du ønsker!
+*/
+
+/* 
+---- Standard Temaer (Lys & Mørk) ----
+*/
+
+/* Lys Tema: Myk beige og kremfarger for en rolig, minimalistisk stil */
+:root.timeless-light-theme {
+    --font-header: "Noto Sans", sans-serif;
+    --font-body: "Noto Sans", sans-serif;
+    --primary-color: #f7f3ef; /* Lys kremfarge for en dempet bakgrunn */
+    --secondary-text-color: #2e2e2e; /* Mørk gråbrun for tekst */
+    --background-color: #f9f6f1; /* Myk beige bakgrunn */
+    --highlight-color: #f0e7da; /* Lys beige for header og footer */
+    --border-color: #d6cfc7; /* Lys beige kant for myk kontrast */
+    --button-color: #d6cfc7; /* Myk beige for knapper */
+    --button-hover-color: #c7b8a7; /* Dypere beige ved hover */
+    --text-color: #2e2e2e; /* Mørk gråbrun tekst for bedre lesbarhet */
+}
+
+body.timeless-light-theme {
+    background-color: var(--primary-color);
+    font-family: var(--font-body);
+    color: var(--text-color);
+}
+
+
+/* Mørk Tema: Elegant og minimalistisk med myke kontraster */
+:root.timeless-dark-theme {
+    --font-header: "Noto Sans", sans-serif;
+    --font-body: "Noto Sans", sans-serif;
+    --primary-color: #181818; /* Myk, nesten svart for en dempet bakgrunn */
+    --secondary-text-color: #e8e8e8; /* Lys grå for bedre lesbarhet, men ikke helt hvit */
+    --background-color: #181818; /* Enkelt og flatt mørkt tema uten gradient */
+    --highlight-color: #3a3a3a; /* En anelse lysere grå for subtile aksenter */
+    --border-color: #282828; /* Svakt lysere enn bakgrunnen for myk kontrast */
+    --button-color: #282828; /* Jevne mørke knapper med subtil kontrast */
+    --button-hover-color: #3a3a3a; /* Lett lysere ved hover, men fortsatt subtil */
+    --text-color: #e8e8e8; /* Lys grå tekst for bedre lesbarhet mot mørk bakgrunn */
+}
+
+body.timeless-dark-theme {
+    background-color: var(--primary-color);
+    font-family: var(--font-body);
+    color: var(--text-color);
+}
+
+
+
+/* 
+---- Bruk av fonter og styling ----
+*/
+
+/* Bruker fontene basert på aktivt tema */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-header); /* Font for overskrifter */
+}
+
+body, p, li, span {
+    font-family: var(--font-body); /* Font for brødtekst */
+}
+
+/* Stil for knapper */
+button {
+    padding: 10px 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--button-color);
+    color: var(--secondary-text-color);
+    border-radius: 6px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* 
+---- Sesongbaserte Temaer ----
+*/
+:root.spring-light-theme {
+    --font-header: "Noto Serif JP", serif;
+    --font-body: "Noto Sans JP", sans-serif;
+    --primary-color: #f9c2d1; /* Light pink */
+    --secondary-text-color: #2b2b2b; /* Dark charcoal gray for contrast */
+    --background-color: #fffafc; /* Soft off-white */
+    --highlight-color: #f48fb1; /* Peach for accents */
+    --border-color: #dcdcdc; /* Soft gray border */
+    --button-color: #f28c8c; /* Soft peach for buttons */
+    --button-hover-color: #e57373; /* Muted rose hover effect */
+    --text-color: #2b2b2b; /* Dark charcoal gray text */
+}
+
+body.spring-light-theme {
+    background-color: var(--primary-color);
+    font-family: var(--font-body);
+}
+
+header {
+    background-color: var(--highlight-color);
+    color: var(--secondary-text-color);
+    font-family: var(--font-header);
+}
+
+:root.spring-dark-theme {
+    --font-header: "Noto Serif JP", serif;
+    --font-body: "Noto Sans JP", sans-serif;
+    --primary-color: #1b5e20; /* Deep forest green */
+    --secondary-text-color: #e0f7fa; /* Soft off-white */
+    --background-color: #1b5e20; /* Forest green background */
+    --highlight-color: #4caf50; /* Fresh green for buttons */
+    --border-color: #2e7d32; /* Darker green border */
+    --button-color: #4caf50; /* Spring green buttons */
+    --button-hover-color: #66bb6a; /* Lighter green hover effect */
+    --text-color: #e0f7fa; /* Soft white text */
+}
+
+body.spring-dark-theme {
+    background-color: var(--primary-color);
+    font-family: var(--font-body);
+}
+
+header {
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    font-family: var(--font-header);
+}
+
+:root.summer-light-theme {
+    --font-header: "Roboto", sans-serif;
+    --font-body: "Roboto", sans-serif;
+    --primary-color: #b3e5fc; /* Soft sky blue */
+    --secondary-text-color: #2b2b2b; /* Dark charcoal gray */
+    --background-color: #ffffff; /* White for simplicity and cleanliness */
+    --highlight-color: #ffc107; /* Golden yellow for accents */
+    --border-color: #ffeb3b; /* Light yellow for borders */
+    --button-color: #ffc107; /* Golden yellow for buttons */
+    --button-hover-color: #ffeb3b; /* Lighter yellow hover effect */
+    --text-color: #2b2b2b; /* Dark gray for text */
+}
+
+body.summer-light-theme {
+    background-color: var(--primary-color);
+    font-family: var(--font-body);
+}
+
+header {
+    background-color: var(--highlight-color);
+    color: var(--secondary-text-color);
+    font-family: var(--font-header);
+}
+
+:root.summer-dark-theme {
+    --font-header: "Roboto", sans-serif;
+    --font-body: "Roboto", sans-serif;
+    --primary-color: #0a3d62; /* Deep rich ocean blue for background */
+    --secondary-text-color: #f1f1f1; /* Soft white for text */
+    --background-color: #0a3d62; /* Dark blue background */
+    --highlight-color: #00a896; /* Cool seafoam green for accents */
+    --border-color: #57c7f7; /* Pale sky blue for borders */
+    --button-color: #57c7f7; /* Pale sky blue for buttons */
+    --button-hover-color: #82dafb; /* Light sky blue for hover effect */
+    --text-color: #f1f1f1; /* Soft white for readability */
+}
+
+
+:root.autumn-light-theme {
+    --font-header: "Merriweather", serif;
+    --font-body: "Open Sans", sans-serif;
+    --primary-color: #e09e5a; /* Warm terracotta */
+    --secondary-text-color: #2b2b2b; /* Dark brown */
+    --background-color: #f5e0c1; /* Soft beige */
+    --highlight-color: #d87a54; /* Rich rust orange */
+    --border-color: #8e0000; /* Warm border */
+    --button-color: #d87a54; /* Rust orange buttons */
+    --button-hover-color: #f8e1c1; /* Light beige hover effect */
+    --text-color: #2b2b2b; /* Dark brown text */
+}
+
+body.autumn-light-theme {
+    background-color: var(--primary-color);
+    font-family: var(--font-body);
+}
+
+header {
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    font-family: var(--font-header);
+}
+
+:root.autumn-dark-theme {
+    --font-header: "Merriweather", serif;
+    --font-body: "Open Sans", sans-serif;
+    --primary-color: #5d4037; /* Deep burnt orange */
+    --secondary-text-color: #fdf8f4; /* Cream white */
+    --background-color: #5d4037; /* Rich autumn burnt orange */
+    --highlight-color: #c0a16b; /* Muted mustard for buttons */
+    --border-color: #8e0000; /* Warm border */
+    --button-color: #c0a16b; /* Muted mustard buttons */
+    --button-hover-color: #b58a50; /* Warm ochre hover effect */
+    --text-color: #fdf8f4; /* Creamy white for text */
+}
+
+body.autumn-dark-theme {
+    background-color: var(--primary-color);
+    font-family: var(--font-body);
+}
+
+header {
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    font-family: var(--font-header);
+}
+
+
+
+:root.winter-light-theme {
+    --font-header: "Montserrat", sans-serif;
+    --font-body: "Nunito Sans", sans-serif;
+    --primary-color: #d6ecf7; /* Frosty blue-gray */
+    --secondary-text-color: #2b2b2b; /* Dark charcoal gray */
+    --background-color: #eceff1; /* Frosty white background */
+    --highlight-color: #90caf9; /* Cool ice blue for accents */
+    --border-color: #455a64; /* Cool blue-gray border */
+    --button-color: #90caf9; /* Icy blue buttons */
+    --button-hover-color: #bbdefb; /* Light blue hover */
+    --text-color: #2b2b2b; /* Dark gray text for contrast */
+}
+
+body.winter-light-theme {
+    background-color: var(--primary-color);
+    font-family: var(--font-body);
+}
+
+footer {
+    background-color: var(--highlight-color); /* Frosty white for footer */
+    color: var(--text-color);
+    padding: 10px;
+    text-align: center;
+}
+
+
+:root.winter-dark-theme {
+    --font-header: "Montserrat", sans-serif;
+    --font-body: "Nunito Sans", sans-serif;
+    --primary-color: #263238; /* Deep navy blue */
+    --secondary-text-color: #f8f8f8; /* Soft white */
+    --background-color: #263238; /* Midnight blue */
+    --highlight-color: #546e7a; /* Frosted blue-gray */
+    --border-color: #455a64; /* Cool border */
+    --button-color: #546e7a; /* Cool blue-gray buttons */
+    --button-hover-color: #78909c; /* Lighter blue-gray hover effect */
+    --text-color: #f8f8f8; /* Soft white for contrast */
+}

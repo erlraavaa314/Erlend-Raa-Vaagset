@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extended Robotics Lab with Screw Bot Makers and Cost Reduction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        #gameContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .window {
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            width: 300px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .stats {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Extended Robotics Lab Idle Game</h1>
+    <div id="gameContainer">
+        <!-- Screws Section -->
+        <div class="window" id="screwLab">
+            <h2>Screw Lab</h2>
+            <div class="stats">Screws: <span id="screwCount">0</span></div>
+            <div class="stats">Screw Robots: <span id="robotCount">0</span></div>
+            <div class="stats">Screw Bot Makers: <span id="botMakerCount">0</span></div>
+            <button id="collectScrews">Collect Screws</button>
+            <button id="buildScrewRobot" disabled>Build Screw Robot (Cost: 10 screws)</button>
+            <button id="buildScrewBotMaker" disabled>Build Screw Bot Maker (Cost: 5 gizmos)</button>
+            <button id="reduceScrewRobotCost" disabled>Reduce Screw Robot Cost (Cost: 100 screws)</button>
+        </div>
+
+        <!-- Gears Section -->
+        <div class="window" id="gearLab">
+            <h2>Gear Lab</h2>
+            <div class="stats">Gears: <span id="gearCount">0</span></div>
+            <div class="stats">Gear Robots: <span id="gearRobotCount">0</span></div>
+            <button id="buildGearRobot" disabled>Build Gear Robot (Cost: 20 screws)</button>
+            <button id="reduceGearRobotCost" disabled>Reduce Gear Robot Cost (Cost: 100 gears)</button>
+        </div>
+
+        <!-- Widgets Section -->
+        <div class="window" id="widgetLab">
+            <h2>Widget Lab</h2>
+            <div class="stats">Widgets: <span id="widgetCount">0</span></div>
+            <div class="stats">Widget Robots: <span id="widgetRobotCount">0</span></div>
+            <button id="buildWidgetRobot" disabled>Build Widget Robot (Cost: 10 gears)</button>
+            <button id="reduceWidgetRobotCost" disabled>Reduce Widget Robot Cost (Cost: 100 widgets)</button>
+        </div>
+
+        <!-- Gizmos Section -->
+        <div class="window" id="gizmoLab">
+            <h2>Gizmo Lab</h2>
+            <div class="stats">Gizmos: <span id="gizmoCount">0</span></div>
+            <div class="stats">Gizmo Robots: <span id="gizmoRobotCount">0</span></div>
+            <button id="buildGizmoRobot" disabled>Build Gizmo Robot (Cost: 5 widgets)</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Game state
+        let screws = 0;
+        let gears = 0;
+        let widgets = 0;
+        let gizmos = 0;
+
+        let screwRobotCount = 0;
+        let gearRobotCount = 0;
+        let widgetRobotCount = 0;
+        let gizmoRobotCount = 0;
+        let botMakerCount = 0;
+
+        let screwRobotCost = 10;
+        let gearRobotCost = 20;
+        let widgetRobotCost = 10;
+        let gizmoRobotCost = 5;
+
+        let screwBotMakerCost = 5; // in gizmos
+        let screwRobotCostReduction = 1; // Cost multiplier (cannot go below 0.5)
+
+        let screwRobotReductionCost = 100;
+        let gearRobotReductionCost = 100;
+        let widgetRobotReductionCost = 100;
+
+        // DOM Elements
+        const screwCountElem = document.getElementById('screwCount');
+        const gearCountElem = document.getElementById('gearCount');
+        const widgetCountElem = document.getElementById('widgetCount');
+        const gizmoCountElem = document.getElementById('gizmoCount');
+
+        const robotCountElem = document.getElementById('robotCount');
+        const gearRobotCountElem = document.getElementById('gearRobotCount');
+        const widgetRobotCountElem = document.getElementById('widgetRobotCount');
+
+        const collectScrewsBtn = document.getElementById('collectScrews');
+        const buildScrewRobotBtn = document.getElementById('buildScrewRobot');
+        const buildScrewBotMakerBtn = document.getElementById('buildScrewBotMaker');
+        const buildGearRobotBtn = document.getElementById('buildGearRobot');
+        const buildWidgetRobotBtn = document.getElementById('buildWidgetRobot');
+        const buildGizmoRobotBtn = document.getElementById('buildGizmoRobot');
+
+        const reduceScrewRobotCostBtn = document.getElementById('reduceScrewRobotCost');
+        const reduceGearRobotCostBtn = document.getElementById('reduceGearRobotCost');
+        const reduceWidgetRobotCostBtn = document.getElementById('reduceWidgetRobotCost');
+
+        // Manual screw collection
+        collectScrewsBtn.addEventListener('click', () => {
+            screws += 1;
+            updateDisplay();
+            checkUpgrades();
+        });
+
+        // Build Screw Robot
+        buildScrewRobotBtn.addEventListener('click', () => {
+            let actualCost = Math.floor(screwRobotCost * screwRobotCostReduction);
+            if (screws >= actualCost) {
+                screws -= actualCost;
+                screwRobotCount++;
+                screwRobotCost = Math.floor(screwRobotCost * 1.5); // Exponential cost scaling
+                updateDisplay();
+                checkUpgrades();
+            }
+        });
+
+        // Build Screw Bot Maker
+        buildScrewBotMakerBtn.addEventListener('click', () => {
+            if (gizmos >= screwBotMakerCost) {
+                gizmos -= screwBotMakerCost;
+                botMakerCount++;
+                screwBotMakerCost = Math.floor(screwBotMakerCost * 1.5); // Exponential cost scaling
+                updateDisplay();
+                checkUpgrades();
+                startBotMakerAutomation();
+            }
+        });
+
+        // Automatically build Screw Robots with Bot Makers
+        function startBotMakerAutomation() {
+            setInterval(() => {
+                if (botMakerCount > 0 && screws >= Math.floor(screwRobotCost * screwRobotCostReduction)) {
+                    screws -= Math.floor(screwRobotCost * screwRobotCostReduction);
+                    screwRobotCount++;
+                    updateDisplay();
+                    checkUpgrades();
+                }
+            }, 10000); // Builds a new Screw Robot every 10 seconds
+        }
+
+        // Build Gear Robot
+        buildGearRobotBtn.addEventListener('click', () => {
+            let actualCost = Math.floor(gearRobotCost);
+            if (screws >= actualCost) {
+                screws -= actualCost;
+                gearRobotCount++;
+                gearRobotCost = Math.floor(gearRobotCost * 1.5); // Exponential cost scaling
+                updateDisplay();
+                checkUpgrades();
+            }
+        });
+
+        // Build Widget Robot
+        buildWidgetRobotBtn.addEventListener('click', () => {
+            let actualCost = Math.floor(widgetRobotCost);
+            if (gears >= actualCost) {
+                gears -= actualCost;
+                widgetRobotCount++;
+                widgetRobotCost = Math.floor(widgetRobotCost * 1.5); // Exponential cost scaling
+                updateDisplay();
+                checkUpgrades();
+            }
+        });
+
+        // Build Gizmo Robot
+        buildGizmoRobotBtn.addEventListener('click', () => {
+            if (widgets >= gizmoRobotCost) {
+                widgets -= gizmoRobotCost;
+                gizmoRobotCount++;
+                gizmoRobotCost = Math.floor(gizmoRobotCost * 1.5); // Exponential cost scaling
+                updateDisplay();
+                checkUpgrades();
+            }
+        });
+
+        // Reduce Screw Robot Cost
+        reduceScrewRobotCostBtn.addEventListener('click', () => {
+            if (screws >= screwRobotReductionCost && screwRobotCostReduction > 0.5) { // Cannot reduce cost below 50%
+                screws -= screwRobotReductionCost;
+                screwRobotReductionCost = Math.floor(screwRobotReductionCost * 2); // Exponential scaling
+                screwRobotCostReduction -= 0.1; // Reduce cost by 10%
+                updateDisplay();
+                checkUpgrades();
+            }
+        });
+
+        // Reduce Gear Robot Cost
+        reduceGearRobotCostBtn.addEventListener('click', () => {
+            if (gears >= gearRobotReductionCost && gearRobotCost > 0.5) { // Cannot reduce cost below 50%
+                gears -= gearRobotReductionCost;
+                gearRobotReductionCost = Math.floor(gearRobotReductionCost * 2); // Exponential scaling
+                gearRobotCost -= 0.1; // Reduce cost by 10%
+                updateDisplay();
+                checkUpgrades();
+            }
+        });
+
+        // Reduce Widget Robot Cost
+        reduceWidgetRobotCostBtn.addEventListener('click', () => {
+            if (widgets >= widgetRobotReductionCost && widgetRobotCost > 0.5) { // Cannot reduce cost below 50%
+                widgets -= widgetRobotReductionCost;
+                widgetRobotReductionCost = Math.floor(widgetRobotReductionCost * 2); // Exponential scaling
+                widgetRobotCost -= 0.1; // Reduce cost by 10%
+                updateDisplay();
+                checkUpgrades();
+            }
+        });
+
+        // Robot production intervals
+        setInterval(() => {
+            if (screwRobotCount > 0) {
+                screws += screwRobotCount; // Screw Robots produce screws
+            }
+            if (gearRobotCount > 0) {
+                if (screws >= gearRobotCount) {
+                    screws -= gearRobotCount; // Consumes screws
+                    gears += gearRobotCount; // Gear Robots produce gears
+                }
+            }
+            if (widgetRobotCount > 0) {
+                if (gears >= widgetRobotCount) {
+                    gears -= widgetRobotCount; // Consumes gears
+                    widgets += widgetRobotCount; // Widget Robots produce widgets
+                }
+            }
+            if (gizmoRobotCount > 0) {
+                if (widgets >= gizmoRobotCount) {
+                    widgets -= gizmoRobotCount; // Consumes widgets
+                    gizmos += gizmoRobotCount; // Gizmo Robots produce gizmos
+                }
+            }
+            updateDisplay();
+            checkUpgrades();
+        }, 1000); // Every 1 second
+
+        // Update the display of screws, gears, widgets, gizmos, and robots
+        function updateDisplay() {
+            screwCountElem.innerText = Math.floor(screws);
+            gearCountElem.innerText = Math.floor(gears);
+            widgetCountElem.innerText = Math.floor(widgets);
+            gizmoCountElem.innerText = Math.floor(gizmos);
+
+            robotCountElem.innerText = screwRobotCount;
+            gearRobotCountElem.innerText = gearRobotCount;
+            widgetRobotCountElem.innerText = widgetRobotCount;
+
+            buildScrewRobotBtn.innerText = `Build Screw Robot (Cost: ${Math.floor(screwRobotCost * screwRobotCostReduction)} screws)`;
+            buildGearRobotBtn.innerText = `Build Gear Robot (Cost: ${Math.floor(gearRobotCost)} screws)`;
+            buildWidgetRobotBtn.innerText = `Build Widget Robot (Cost: ${Math.floor(widgetRobotCost)} gears)`;
+            buildGizmoRobotBtn.innerText = `Build Gizmo Robot (Cost: ${gizmoRobotCost} widgets)`;
+
+            buildScrewBotMakerBtn.innerText = `Build Screw Bot Maker (Cost: ${screwBotMakerCost} gizmos)`;
+            reduceScrewRobotCostBtn.innerText = `Reduce Screw Robot Cost (Cost: ${screwRobotReductionCost} screws)`;
+            reduceGearRobotCostBtn.innerText = `Reduce Gear Robot Cost (Cost: ${gearRobotReductionCost} gears)`;
+            reduceWidgetRobotCostBtn.innerText = `Reduce Widget Robot Cost (Cost: ${widgetRobotReductionCost} widgets)`;
+        }
+
+        // Check and enable upgrades when resources are available
+        function checkUpgrades() {
+            buildScrewRobotBtn.disabled = screws < Math.floor(screwRobotCost * screwRobotCostReduction);
+            buildGearRobotBtn.disabled = screws < Math.floor(gearRobotCost);
+            buildWidgetRobotBtn.disabled = gears < Math.floor(widgetRobotCost);
+            buildGizmoRobotBtn.disabled = widgets < gizmoRobotCost;
+
+            buildScrewBotMakerBtn.disabled = gizmos < screwBotMakerCost;
+
+            reduceScrewRobotCostBtn.disabled = screws < screwRobotReductionCost || screwRobotCostReduction <= 0.5;
+            reduceGearRobotCostBtn.disabled = gears < gearRobotReductionCost || gearRobotCost <= 0.5;
+            reduceWidgetRobotCostBtn.disabled = widgets < widgetRobotReductionCost || widgetRobotCost <= 0.5;
+        }
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,173 @@
+/* General Styles */
+body {
+    font-family: 'Nunito', sans-serif; /* Friendly and approachable font */
+    margin: 0;
+    padding: 0;
+    font-size: 20px; /* Larger base font size */
+    line-height: 1.8; /* Increase line height for readability */
+    transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
+}
+
+/* Light Mode */
+:root {
+    --bg-color: #d8eaf5; /* Misty light blue */
+    --text-color: #2a2a2a; /* Deep slate gray */
+    --accent-primary: #89c9d8; /* Cool aqua */
+    --accent-secondary: #4a7c59; /* Forest green */
+    --header-footer-color: #2a2a2a; /* Deep slate gray */
+    --header-subtitle-color: #4a7c59; /* Forest green */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --bg-color: #1f4033; /* Deep forest green */
+    --text-color: #f0f0f0; /* Light gray for readability */
+    --accent-primary: #68b0ab; /* Fjord teal */
+    --accent-secondary: #f0f0f0;; /* Moss green */
+    --header-footer-color: #f0f0f0; /* Light gray */
+    --header-subtitle-color: #68b0ab; /* Fjord teal */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Main Container */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: url('/textures/paper.png') repeat; /* Default paper background */
+    background-size: 1000px 1000px; /* Scale down the texture for a finer appearance */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--accent-secondary);
+    transition: background-image 0.3s ease;
+}
+
+/* Switch to Blackboard Texture in Dark Mode */
+body.dark-mode .container {
+    background: url('/textures/blackboard.jpg') repeat; /* Blackboard texture for dark mode */
+    background-size: 500px 500px; /* Cover ensures full background scaling */
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 2px solid var(--accent-primary);
+    color: var(--header-footer-color);
+}
+
+header h1 {
+    font-size: 3.5rem; /* Larger and more prominent */
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 1.8rem; /* Bigger and friendlier subtitle */
+    font-weight: 400;
+    color: var(--header-subtitle-color);
+}
+
+/* Theme Toggle Button */
+header .btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 12px 25px;
+    background-color: var(--accent-primary);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header .btn:hover {
+    background-color: var(--accent-secondary);
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: 2px solid var(--accent-primary);
+    margin: 0;
+    color: var(--header-footer-color);
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 1.5rem; /* Larger and more approachable */
+    font-weight: 600;
+    color: var(--header-footer-color);
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav ul li a:hover, .active {
+    color: var(--accent-primary);
+}
+
+/* General Body Text */
+p {
+    font-size: 1.5rem; /* Slightly larger */
+    font-weight: 500; /* Slightly bolder to align with headings */
+    letter-spacing: 0.5px; /* Subtle spacing for refinement */
+    line-height: 1.7; /* Slightly reduced to feel more compact */
+    color: var(--text-color); /* Consistent color */
+}
+
+/* Section Headings */
+h2 {
+    color: var(--accent-secondary);
+    font-size: 2.5rem; /* Larger section headers */
+    font-weight: 700;
+    letter-spacing: 1px; /* Matches the body text for cohesiveness */
+    margin-bottom: 20px;
+}
+
+/* Figure and Image Styles */
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-style: italic;
+    font-size: 1.2rem; /* Larger footer text */
+    color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid var(--accent-primary);
+    margin-top: 40px;
+    font-size: 1.2rem; /* Larger footer text */
+    color: var(--header-footer-color);
+}
+
+/* Smooth Transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
+}

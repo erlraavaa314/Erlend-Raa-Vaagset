@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creature Battle Game</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container Box */
+        #game-box {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Basic Heading Styling */
+        h1, h2 {
+            color: #333;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Form and Input Styling */
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Game Section Styling */
+        #battle, #upgrade-form, #generated-creature, #updated-creature-stats {
+            display: none;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* HP Colors */
+        .hp-green {
+            color: green;
+        }
+
+        .hp-yellow {
+            color: orange;
+        }
+
+        .hp-red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-box">
+        <h1>Creature Battle Game</h1>
+
+        <!-- Creature Generation Form -->
+        <form id="creature-form">
+            <label for="creature-name">Creature Name:</label>
+            <input type="text" id="creature-name" name="creature-name" required>
+
+            <label for="creature-element">Choose an Element:</label>
+            <select id="creature-element" name="creature-element">
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="earth">Earth</option>
+                <option value="air">Air</option>
+            </select>
+
+            <button type="submit">Create Creature</button>
+        </form>
+
+        <!-- Placeholder for Generated Creature -->
+        <div id="generated-creature">
+            <h2>Your Creature</h2>
+            <p id="creature-info"></p>
+            <button id="start-battle">Start Battle</button>
+        </div>
+
+        <!-- Battle Section -->
+        <div id="battle">
+            <h2>Battle!</h2>
+            <p id="battle-info"></p>
+
+            <label for="move-choice">Choose a Move:</label>
+            <select id="move-choice"></select>
+            <button id="attack-btn">Attack</button>
+        </div>
+
+        <!-- Upgrade Form -->
+        <form id="upgrade-form">
+            <label for="upgrade-choice">Choose an Upgrade:</label>
+            <select id="upgrade-choice" name="upgrade-choice">
+                <option value="hp">Increase HP</option>
+                <option value="attack">Increase Attack</option>
+                <option value="defense">Increase Defense</option>
+            </select>
+            <button type="submit">Apply Upgrade</button>
+        </form>
+
+        <!-- Placeholder for Updated Creature Stats -->
+        <div id="updated-creature-stats">
+            <h2>Updated Creature Stats</h2>
+            <p id="updated-creature-info"></p>
+        </div>
+    </div>
+
+    <script>
+        // Random stat generator
+        function randomStat(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Variables to store player and enemy creatures
+        let playerCreature = {};
+        let enemyCreature = {};
+        let round = 1;
+
+        // Function to get HP color based on percentage
+        function getHpColor(currentHp, maxHp) {
+            const percentage = (currentHp / maxHp) * 100;
+            if (percentage > 70) {
+                return 'hp-green';
+            } else if (percentage > 30) {
+                return 'hp-yellow';
+            } else {
+                return 'hp-red';
+            }
+        }
+
+        // Handle creature generation
+        document.getElementById('creature-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('creature-name').value;
+            const element = document.getElementById('creature-element').value;
+
+            // Create player creature object
+            playerCreature = {
+                name: name,
+                element: element,
+                maxHp: randomStat(100, 150),
+                hp: 0, // We'll set HP equal to maxHp after creation
+                attack: randomStat(20, 50),
+                defense: randomStat(20, 50),
+                moves: [
+                    { name: `${element} Blast`, power: randomStat(30, 40) },
+                    { name: `${element} Strike`, power: randomStat(20, 30) },
+                    { name: `${element} Surge`, power: randomStat(40, 50) }
+                ]
+            };
+            playerCreature.hp = playerCreature.maxHp; // Set initial HP to max
+
+            // Display creature info
+            document.getElementById('creature-info').textContent = `
+                Name: ${playerCreature.name}, Element: ${playerCreature.element}, 
+                HP: ${playerCreature.hp}, Attack: ${playerCreature.attack}, 
+                Defense: ${playerCreature.defense}
+            `;
+
+            // Show the start battle button and creature info
+            document.getElementById('generated-creature').style.display = 'block';
+            document.getElementById('creature-form').style.display = 'none';
+        });
+
+        // Function to start a battle and generate a new enemy
+        function startBattle() {
+            // Generate a random enemy creature
+            enemyCreature = {
+                name: `Enemy Creature (Round ${round})`,
+                element: 'water', // fixed for now, you can randomize this later
+                maxHp: randomStat(100, 150) + round * 10, // Increase HP based on round
+                hp: 0, // We'll set HP equal to maxHp
+                attack: randomStat(20, 50) + round * 5, // Increase attack based on round
+                defense: randomStat(20, 50) + round * 5, // Increase defense based on round
+                moves: [
+                    { name: 'Water Blast', power: randomStat(30, 40) },
+                    { name: 'Water Strike', power: randomStat(20, 30) },
+                    { name: 'Water Surge', power: randomStat(40, 50) }
+                ]
+            };
+            enemyCreature.hp = enemyCreature.maxHp;
+
+            // Display battle info
+            updateBattleInfo();
+
+            // Populate move choices for the player
+            const moveSelect = document.getElementById('move-choice');
+            moveSelect.innerHTML = ''; // Clear existing moves
+            playerCreature.moves.forEach((move, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${move.name} (Power: ${move.power})`;
+                moveSelect.appendChild(option);
+            });
+
+            document.getElementById('battle').style.display = 'block';
+            document.getElementById('generated-creature').style.display = 'none';
+        }
+
+        // Update the battle information (HP and moves)
+        function updateBattleInfo() {
+            const playerHpColor = getHpColor(playerCreature.hp, playerCreature.maxHp);
+            const enemyHpColor = getHpColor(enemyCreature.hp, enemyCreature.maxHp);
+
+            document.getElementById('battle-info').innerHTML = `
+                Your Creature: ${playerCreature.name} 
+                <span class="${playerHpColor}">HP: ${playerCreature.hp}/${playerCreature.maxHp}</span><br>
+                Enemy Creature: ${enemyCreature.name} 
+                <span class="${enemyHpColor}">HP: ${enemyCreature.hp}/${enemyCreature.maxHp}</span>
+            `;
+        }
+
+        // Start the battle when the button is clicked
+        document.getElementById('start-battle').addEventListener('click', startBattle);
+
+        // Handle the attack logic
+        document.getElementById('attack-btn').addEventListener('click', function() {
+            // Get the selected move
+            const selectedMoveIndex = document.getElementById('move-choice').value;
+            const selectedMove = playerCreature.moves[selectedMoveIndex];
+
+            // Player attacks enemy
+            const playerDamage = randomStat(10, selectedMove.power);
+            enemyCreature.hp -= playerDamage;
+
+            if (enemyCreature.hp <= 0) {
+                enemyCreature.hp = 0;
+                alert('You won the battle!');
+                document.getElementById('battle').style.display = 'none';
+                document.getElementById('upgrade-form').style.display = 'block';
+                return;
+            }
+
+            // Enemy retaliates
+            const enemyMove = enemyCreature.moves[randomStat(0, enemyCreature.moves.length - 1)];
+            const enemyDamage = randomStat(10, enemyMove.power);
+            playerCreature.hp -= enemyDamage;
+
+            if (playerCreature.hp <= 0) {
+                playerCreature.hp = 0;
+                alert('You lost the battle!');
+                document.getElementById('battle').style.display = 'none';
+                return;
+            }
+
+            // Update battle info
+            updateBattleInfo();
+        });
+
+        // Handle upgrade form submission
+        document.getElementById('upgrade-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const upgradeChoice = document.getElementById('upgrade-choice').value;
+
+            // Apply the selected upgrade
+            switch (upgradeChoice) {
+                case 'hp':
+                    playerCreature.maxHp += 20;
+                    playerCreature.hp = playerCreature.maxHp; // Fully heal after upgrade
+                    break;
+                case 'attack':
+                    playerCreature.attack += 10;
+                    break;
+                case 'defense':
+                    playerCreature.defense += 10;
+                    break;
+            }
+
+            // Display updated stats
+            document.getElementById('updated-creature-info').textContent = `
+                Name: ${playerCreature.name}, Element: ${playerCreature.element}, 
+                HP: ${playerCreature.hp}/${playerCreature.maxHp}, Attack: ${playerCreature.attack}, 
+                Defense: ${playerCreature.defense}
+            `;
+
+            // Move to next round
+            round++;
+            document.getElementById('upgrade-form').style.display = 'none';
+            document.getElementById('updated-creature-stats').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('updated-creature-stats').style.display = 'none';
+                startBattle(); // Start the next round automatically
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
+

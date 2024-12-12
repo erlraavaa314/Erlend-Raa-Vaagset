@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Min Personlige Nettside - Erfaring</title>
+
+  <!-- Lenker til stilarket ditt. Du kan tilpasse utseendet ved å redigere style.css -->
+  <link rel="stylesheet" href="styles/style.css">
+
+  <!-- Bruker Google Fonts for å laste inn forskjellige skrifttyper -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&family=Merriweather:wght@300;400&family=Roboto:wght@300;400&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body class="timeless-theme">
+
+  <header>
+    <nav>
+      <!-- Navigasjonsmeny -->
+      <ul>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="about.html">Om Meg</a></li>
+        <li><a href="projects.html">Prosjekter</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="experience">
+      <h1>Min Erfaring</h1>
+
+      <!--
+      Enkel løsning:
+      - Du kan hardkode erfaringene dine direkte i HTML hvis du vil ha en enkel løsning uten JavaScript.
+      - Bare legg til hver erfaring som en <article> i HTML-koden nedenfor.
+      - Dette er bra hvis du har noen få erfaringer og ikke trenger å oppdatere ofte.
+      -->
+
+      <article>
+        <h2>Frontend Developer - Tech Corp</h2>
+        <p><strong>Dato:</strong> 2022 - Nå</p>
+        <p>Arbeidet med å bygge responsive webapplikasjoner ved hjelp av React og JavaScript.</p>
+      </article>
+
+      <article>
+        <h2>Computer Science Degree - University of Oslo</h2>
+        <p><strong>Dato:</strong> 2019 - 2022</p>
+        <p>Studerte programvareutvikling, algoritmer og datastrukturer.</p>
+      </article>
+      
+
+      <!--
+      Mer avansert løsning (valgfri):
+      - Hvis du vil lage en mer dynamisk nettside, kan du lagre erfaringene dine i en ekstern JSON-fil og bruke JavaScript til å laste dem inn.
+      - Lag en "experience.json" fil, og bruk JavaScript til å hente og vise dataene dynamisk.
+      - Dette gir deg mer fleksibilitet, spesielt hvis du har mange erfaringer eller ønsker å legge til filtre eller sortering.
+
+      Eksempel JSON-struktur:
+      [
+        {
+          "title": "Frontend Developer",
+          "company": "Tech Corp",
+          "date": "2022 - Present",
+          "description": "Worked on building responsive web applications using React and JavaScript."
+        },
+        {
+          "title": "Computer Science Degree",
+          "company": "University of Oslo",
+          "date": "2019 - 2022",
+          "description": "Studied software development, algorithms, and data structures."
+        }
+      ]
+
+      Oppgave for avansert løsning:
+      - Lag en "experience.json" fil med data om din erfaring.
+      - Bruk JavaScript til å hente data fra JSON-filen og vise dem i denne <div>:
+      -->
+
+      <div id="experienceContainer">
+        <!-- Erfaringer vil bli lastet inn dynamisk her fra JSON (valgfri avansert løsning) -->
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 Min Personlige Nettside
+    
+    <!--
+    Denne knappen lar brukeren veksle mellom lys og mørkt tema.
+    Du kan koble den til en funksjon i JavaScript-filen som endrer CSS-klassen for temaet.
+    -->
+    <button id="toggleLightDark" aria-label="Veksle mellom lys og mørkt tema">Veksle Lys/Mørkt Tema</button>
+  
+    <!--
+    Denne knappen lar brukeren bla gjennom forskjellige sesongtemaer.
+    Utforsk hvordan du kan bruke JavaScript til å endre temaet dynamisk basert på brukerens valg.
+    -->
+    <button id="cycleSeason" aria-label="Veksle mellom sesongtemaer">Skift Sesong (Vår, Sommer, Høst, Vinter)</button>
+    
+    <!--
+    Denne knappen lar brukeren aktivere eller deaktivere automatisk sesongendring.
+    Kan du lage en funksjon i JavaScript som endrer sesongen basert på dato eller tid?
+    -->
+    <button id="toggleSeasonAuto" aria-label="Automatiske sesongendringer">Automatiske sesongendringer: På</button>
+  
+    <!--
+    Oppgave: Koble disse knappene til funksjoner i JavaScript-filen for å gjøre siden interaktiv.
+    Du kan prøve å bruke `addEventListener` for å fange klikkhendelser og gjøre endringer i tema eller layout.
+    -->
+    
+    <!--
+    Tips: Hvis knappene dine ikke fungerer som forventet, bruk nettleserens utviklerverktøy (f.eks. Chrome DevTools) for å sjekke konsollen etter feilmeldinger.
+    -->
+  </footer>
+  
+
+  <!-- JavaScript-filen for temaer og sesongmoduser (allerede implementert) -->
+  <script src="js/theme_script.js"></script>
+
+  <!-- Husk å lage din egen experience_manager.js fil for den avanserte løsningen hvis du vil hente erfaring fra JSON -->
+</body>
+</html>

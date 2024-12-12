@@ -2,11 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://erlraavaa314.github.io/Educator-Researcher-Velociraptor/webpage/resources/pages/about">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Erlend Raa Vågset</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    Redirecting you to the new page...
+    <header>
+        <h1>Welcome</h1>
+        <p>Welcome to my webpage. Grab a coffee, sit down and relax for a while!</p>
+        <button id="theme-toggle" class="btn">Toggle Theme</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Welcome Section -->
+        <section>
+            <h2>Hello, and Welcome!</h2>
+            <p>
+                I’m glad you stopped by. This is my own little corner of the web, where I share my work, teaching, and favorite web comics. 
+                Take a look around—you might find something surprising!
+            </p>
+            <figure style="text-align: center;">
+                <img src="/images/erlend (2).jpg" alt="Me on a ferry" title="Or a ferry, to be precise." style="width:60%; height:auto; margin:20px auto;">
+                <figcaption>Just me, but on a boat.</figcaption>
+            </figure>
+        </section>
+
+        <!-- TL;DR Section -->
+        <section>
+            <h2>TL;DR</h2>
+            <p>
+                Hi, I’m Erlend Raa Vågset! I’m an Assistant Professor at HVL in Førde, Norway, working on computational complexity, algorithms, and topology. 
+                My teaching focuses on making computer science fun and accessible, while my research explores how we can solve "impossible" problems—or at least, make them slightly less impossible.
+            </p>
+            <p>
+                At the intersection of teaching and research, I aim to inspire curiosity and uncover new ways to solve computational challenges.
+            </p>
+        </section>
+
+        <!-- Explore More Section -->
+        <section>
+            <h2>Explore More</h2>
+            <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <a href="about.html">
+                        <img src="/images/cabin.jpg" alt="About Me" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="about.html">About Me</a></p>
+                </div>
+                <div style="text-align: center;">
+                    <a href="research.html">
+                        <img src="/images/misc.jpg" alt="Research" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="research.html">Research</a></p>
+                </div>
+                <div style="text-align: center;">
+                    <a href="teaching.html">
+                        <img src="/images/studentactive.jpg" alt="Teaching" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="teaching.html">Teaching</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Erlend Raa Vågset. Trying, failing, and occasionally succeeding since 1993.</p>
+    </footer>
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>
-

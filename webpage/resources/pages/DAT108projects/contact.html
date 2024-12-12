@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kontakt - Min Personlige Nettside</title>
+  
+  <!-- Link to external CSS file to style the form -->
+  <link rel="stylesheet" href="styles/style.css">
+  
+  <!-- External font styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&family=Merriweather:wght@300;400&family=Roboto:wght@300;400&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body class="timeless-theme">
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="about.html">Om Meg</a></li>
+        <li><a href="projects.html">Prosjekter</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="contact">
+      <h1>Kontakt Meg</h1>
+
+      <!--
+      Dette skjemaet lar brukere fylle ut deres informasjon (navn, e-post og melding) for å kontakte deg.
+      Når de klikker på "Send", åpnes deres e-postklient med informasjonen ferdigutfylt og klar til å sendes.
+      
+      - Start her: Fyll ut feltene og prøv å sende skjemaet. Se hva som skjer når e-postklienten din åpnes.
+      - Du kan eksperimentere med å endre feltene for å se hvordan skjemaet fungerer.
+      -->
+      <form id="contactForm" onsubmit="submitForm(); return false;">
+        <label for="name">Navn:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-post:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Melding:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+
+      <!--
+      Tips til utforskning:
+      - Prøv å legge til flere felter, som "Emne" for e-posten.
+      - Når du har forstått dette, kan du flytte JavaScript-koden nedenfor til en egen fil (for eksempel "contact.js").
+      -->
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 Min Personlige Nettside
+    
+    <!--
+    Denne knappen lar brukeren veksle mellom lys og mørkt tema.
+    Du kan koble den til en funksjon i JavaScript-filen som endrer CSS-klassen for temaet.
+    -->
+    <button id="toggleLightDark" aria-label="Veksle mellom lys og mørkt tema">Veksle Lys/Mørkt Tema</button>
+  
+    <!--
+    Denne knappen lar brukeren bla gjennom forskjellige sesongtemaer.
+    Utforsk hvordan du kan bruke JavaScript til å endre temaet dynamisk basert på brukerens valg.
+    -->
+    <button id="cycleSeason" aria-label="Veksle mellom sesongtemaer">Skift Sesong (Vår, Sommer, Høst, Vinter)</button>
+    
+    <!--
+    Denne knappen lar brukeren aktivere eller deaktivere automatisk sesongendring.
+    Kan du lage en funksjon i JavaScript som endrer sesongen basert på dato eller tid?
+    -->
+    <button id="toggleSeasonAuto" aria-label="Automatiske sesongendringer">Automatiske sesongendringer: På</button>
+  
+    <!--
+    Oppgave: Koble disse knappene til funksjoner i JavaScript-filen for å gjøre siden interaktiv.
+    Du kan prøve å bruke `addEventListener` for å fange klikkhendelser og gjøre endringer i tema eller layout.
+    -->
+    
+    <!--
+    Tips: Hvis knappene dine ikke fungerer som forventet, bruk nettleserens utviklerverktøy (f.eks. Chrome DevTools) for å sjekke konsollen etter feilmeldinger.
+    -->
+  </footer>
+  
+  
+  <script src="js/theme_script.js"></script>
+
+  <!-- Dette er JavaScript-koden som håndterer skjemaet.
+       Når du er klar for neste steg, kan du flytte dette til en egen fil for å holde koden mer ryddig. -->
+  <script>
+    function submitForm() {
+      // Hent verdier fra skjemaet
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Lag en "mailto"-lenke som åpner brukerens e-postklient med ferdigutfylte felter
+      const mailtoLink = `mailto:your-email@example.com?subject=Kontakt%20fra%20${encodeURIComponent(name)}&body=Navn: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AMelding:%0A${encodeURIComponent(message)}`;
+
+      // Åpne e-postklienten
+      window.location.href = mailtoLink;
+    }
+  </script>
+
+</body>
+</html>

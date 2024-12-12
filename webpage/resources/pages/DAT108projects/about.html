@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Min Personlige Nettside</title>
+
+  <!--
+  Dette lenker til stilarket som bestemmer hvordan nettsiden din ser ut.
+  Utforsk style.css for å tilpasse farger, layout og andre stiler.
+  -->
+  <link rel="stylesheet" href="styles/style.css">
+
+  <!--
+  Dette er en Google Fonts-lenke som gir deg tilgang til flere fontalternativer.
+  Prøv å endre fontene hvis du vil eksperimentere med designet.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&family=Merriweather:wght@300;400&family=Roboto:wght@300;400&family=Montserrat:wght@300;400&family=Nunito+Sans:wght@300;400&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <!--
+      Navigasjonsmenyen gir brukeren tilgang til de forskjellige sidene på nettsiden.
+      Hvis du vil, kan du legge til flere lenker, eller endre rekkefølgen på de eksisterende.
+      Eksempel: <li><a href="yourlink.html">Ny side</a></li>
+      -->
+      <ul>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="about.html">Om Meg</a></li>
+        <li><a href="projects.html">Prosjekter</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h1>Om meg</h1>
+      <!--
+      Tilpass denne seksjonen ved å legge til din egen bakgrunn og interesser.
+      Gjør teksten din mer personlig for å engasjere de som besøker nettsiden.
+      -->
+      <p>Hei! Jeg heter [Ditt Navn], og jeg har nylig begynt å kode. Det er fascinerende å se hvordan små linjer med tekst kan bli til noe du faktisk kan bruke og se på nettet.</p>
+  
+      <p>Jeg har lært meg HTML, CSS og JavaScript – de grunnleggende byggesteinene for nettsider. Jeg liker å eksperimentere med hvordan disse verktøyene kan kombineres for å lage noe både funksjonelt og pent. Selv om ikke alt alltid fungerer på første forsøk, er det gøy å finne ut hvordan ting henger sammen.</p>
+  
+      <h2>Hva jeg har lært (til nå)</h2>
+      <ul id="skillsList">
+        <li>HTML: Strukturen på nettsiden</li>
+        <li>CSS: Designet og stilen</li>
+        <li>JavaScript: Gjør siden interaktiv</li>
+      </ul>
+  
+      <p>Jeg har allerede fått testet flere små prosjekter, og for hvert prosjekt lærer jeg noe nytt. Det er en god følelse å få ting til å fungere, spesielt når det er noe du har laget selv fra bunnen av.</p>
+  
+      <p>Når jeg ikke sitter og koder, liker jeg å utforske nye teknologier og ideer, eller se hva andre har laget. Webutvikling er spennende fordi det stadig dukker opp nye ting å lære og teste ut.</p>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Min Personlige Nettside
+    
+    <!--
+    Denne knappen lar brukeren veksle mellom lys og mørkt tema.
+    Du kan koble den til en funksjon i JavaScript-filen som endrer CSS-klassen for temaet.
+    -->
+    <button id="toggleLightDark" aria-label="Veksle mellom lys og mørkt tema">Veksle Lys/Mørkt Tema</button>
+  
+    <!--
+    Denne knappen lar brukeren bla gjennom forskjellige sesongtemaer.
+    Utforsk hvordan du kan bruke JavaScript til å endre temaet dynamisk basert på brukerens valg.
+    -->
+    <button id="cycleSeason" aria-label="Veksle mellom sesongtemaer">Skift Sesong (Vår, Sommer, Høst, Vinter)</button>
+    
+    <!--
+    Denne knappen lar brukeren aktivere eller deaktivere automatisk sesongendring.
+    Kan du lage en funksjon i JavaScript som endrer sesongen basert på dato eller tid?
+    -->
+    <button id="toggleSeasonAuto" aria-label="Automatiske sesongendringer">Automatiske sesongendringer: På</button>
+  
+    <!--
+    Oppgave: Koble disse knappene til funksjoner i JavaScript-filen for å gjøre siden interaktiv.
+    Du kan prøve å bruke `addEventListener` for å fange klikkhendelser og gjøre endringer i tema eller layout.
+    -->
+    
+    <!--
+    Tips: Hvis knappene dine ikke fungerer som forventet, bruk nettleserens utviklerverktøy (f.eks. Chrome DevTools) for å sjekke konsollen etter feilmeldinger.
+    -->
+  
+  </footer>
+  
+  
+    <script src="js/theme_script.js"></script>
+</body>
+</html>

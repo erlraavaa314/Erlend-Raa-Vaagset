@@ -1,0 +1,132 @@
+/* Game container styling */
+#game-container {
+    background-color: var(--background-color); /* Inherit background color from the theme */
+    border: 1px solid var(--border-color); /* Use theme's border color */
+    border-radius: 10px; /* Rounded corners for a modern feel */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+    margin: 20px auto; /* Center the game container within the page */
+    text-align: center;
+}
+
+/* Form styling for creature creation */
+#creature-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#creature-form label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: left;
+    color: var(--text-color); /* Inherit text color from theme */
+}
+
+#creature-form input,
+#creature-form select {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--background-color); /* Ensure inputs use the background color from theme */
+    color: var(--text-color); /* Inherit text color */
+}
+
+/* Form button styling */
+#creature-form button {
+    background-color: var(--button-color);
+    color: var(--secondary-text-color);
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#creature-form button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Stats display (during battle phases) */
+.pokemon-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--highlight-color); /* Light background for stats */
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* General button styling for battle and restart phases */
+button {
+    background-color: var(--button-color);
+    color: var(--secondary-text-color);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Dropdown styling */
+#move-choice {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Battle stats display */
+#player-status, #enemy-status {
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+}
+
+
+/* Responsive Design for mobile screens */
+@media (max-width: 768px) {
+    #game-container {
+        padding: 20px;
+    }
+
+    #creature-form input, #creature-form select, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .pokemon-status {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Snake Game on My Website</title>
+
+  <!-- Main website styles -->
+  <link rel="stylesheet" href="../../styles/style.css">
+
+  <!-- Snake game styles -->
+  <link rel="stylesheet" href="snake.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&family=Merriweather:wght@300;400&family=Roboto:wght@300;400&family=Montserrat:wght@300;400&family=Nunito+Sans:wght@300;400&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="about.html">Om Meg</a></li>
+        <li><a href="projects.html">Prosjekter</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section for Snake Game -->
+  <main>
+    <section id="snakeGameSection">
+      <div id="snakeGameContainer">
+        <div id="scoreBoard">Score: 0</div>
+        <div id="highScoreBoard">High Score: 0</div>
+        <pre id="gameBoard"></pre>
+        <p>Use Arrow Keys to control the snake. Press 'R' to restart.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Min Personlige Nettside
+    
+    <!--
+    Denne knappen lar brukeren veksle mellom lys og mørkt tema.
+    Du kan koble den til en funksjon i JavaScript-filen som endrer CSS-klassen for temaet.
+    -->
+    <button id="toggleLightDark" aria-label="Veksle mellom lys og mørkt tema">Veksle Lys/Mørkt Tema</button>
+  
+    <!--
+    Denne knappen lar brukeren bla gjennom forskjellige sesongtemaer.
+    Utforsk hvordan du kan bruke JavaScript til å endre temaet dynamisk basert på brukerens valg.
+    -->
+    <button id="cycleSeason" aria-label="Veksle mellom sesongtemaer">Skift Sesong (Vår, Sommer, Høst, Vinter)</button>
+    
+    <!--
+    Denne knappen lar brukeren aktivere eller deaktivere automatisk sesongendring.
+    Kan du lage en funksjon i JavaScript som endrer sesongen basert på dato eller tid?
+    -->
+    <button id="toggleSeasonAuto" aria-label="Automatiske sesongendringer">Automatiske sesongendringer: På</button>
+  
+    <!--
+    Oppgave: Koble disse knappene til funksjoner i JavaScript-filen for å gjøre siden interaktiv.
+    Du kan prøve å bruke `addEventListener` for å fange klikkhendelser og gjøre endringer i tema eller layout.
+    -->
+    
+    <!--
+    Tips: Hvis knappene dine ikke fungerer som forventet, bruk nettleserens utviklerverktøy (f.eks. Chrome DevTools) for å sjekke konsollen etter feilmeldinger.
+    -->
+  
+  </footer>
+  
+  
+    <script src="../../js/theme_script.js"></script>
+
+  <!-- JavaScript for the Snake Game -->
+  <script src="snake.js"></script>
+</body>
+</html>

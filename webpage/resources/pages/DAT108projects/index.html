@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Min Personlige Nettside</title>
+
+  <!--
+  Denne lenken kobler til stilarket som bestemmer hvordan nettsiden din ser ut.
+  Utforsk style.css for å endre farger, fonter og layout. Prøv å tilpasse designet slik du liker det.
+  -->
+  <link rel="stylesheet" href="styles/style.css">
+
+  <!--
+  Her er en lenke til Google Fonts som gir deg flere fontvalg.
+  Du kan eksperimentere med andre fonter ved å endre URL-en eller legge til flere fonter etter behov.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&family=Merriweather:wght@300;400&family=Roboto:wght@300;400&family=Montserrat:wght@300;400&family=Nunito+Sans:wght@300;400&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!--
+  Velkommen til HTML-prosjektet ditt!
+  Dette prosjektet lar deg lage en personlig nettside, og fokuset vil være på å gjøre siden interaktiv ved bruk av JavaScript.
+  
+  Husk at du kan velge å jobbe med JavaScript-filen som allerede er inkludert (theme_script.js), eller du kan velge å lage din egen JavaScript-funksjonalitet fra bunnen av.
+  Uansett hva du velger, er målet å lære hvordan JavaScript kan forbedre interaktiviteten på siden din.
+  -->
+
+  <header>
+    <!--
+    Oppgave 1 (Valgfri): Navigasjonsmeny
+    Bruk navigasjonsmenyen til å la brukeren enkelt bevege seg mellom sidene på nettstedet ditt. Her kan du legge til flere lenker, for eksempel til "Om Meg", "Prosjekter" og "Kontakt".
+
+    Du kan bruke <a>-taggen for å lage lenker:
+    <li><a href="about.html">Om Meg</a></li>
+    
+    Ekstra idé: Du kan bruke JavaScript til å gjøre menyen interaktiv. Kanskje en dropdown-meny?
+    -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="about.html">Om Meg</a></li>
+        <li><a href="projects.html">Prosjekter</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main>
+    <section id="home">
+      <h1>Velkommen til Min Nettside</h1>
+      <p>Dette er din egen personlige nettside hvor du kan vise frem prosjektene dine og fortelle litt om deg selv.</p>
+      <!--
+      Oppgave 2 (Valgfri): Tilpasse Velkomstseksjonen
+      Her kan du gjøre velkomsten mer personlig ved å legge til navnet ditt i overskriften (f.eks. "Velkommen til [Ditt Navn] sin nettside").
+      
+      Ekstra idé: Legg til et bilde av deg selv med <img>-taggen for å gjøre siden mer personlig.
+      Eksempel: <img src="bildebane.jpg" alt="Bilde av meg">
+      -->
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Min Personlige Nettside
+    
+    <!--
+    Denne knappen lar brukeren veksle mellom lys og mørkt tema.
+    Du kan koble den til en funksjon i JavaScript-filen som endrer CSS-klassen for temaet.
+    -->
+    <button id="toggleLightDark" aria-label="Veksle mellom lys og mørkt tema">Veksle Lys/Mørkt Tema</button>
+  
+    <!--
+    Denne knappen lar brukeren bla gjennom forskjellige sesongtemaer.
+    Utforsk hvordan du kan bruke JavaScript til å endre temaet dynamisk basert på brukerens valg.
+    -->
+    <button id="cycleSeason" aria-label="Veksle mellom sesongtemaer">Skift Sesong (Vår, Sommer, Høst, Vinter)</button>
+    
+    <!--
+    Denne knappen lar brukeren aktivere eller deaktivere automatisk sesongendring.
+    Kan du lage en funksjon i JavaScript som endrer sesongen basert på dato eller tid?
+    -->
+    <button id="toggleSeasonAuto" aria-label="Automatiske sesongendringer">Automatiske sesongendringer: På</button>
+  
+    <!--
+    Oppgave: Koble disse knappene til funksjoner i JavaScript-filen for å gjøre siden interaktiv.
+    Du kan prøve å bruke `addEventListener` for å fange klikkhendelser og gjøre endringer i tema eller layout.
+    -->
+    
+    <!--
+    Tips: Hvis knappene dine ikke fungerer som forventet, bruk nettleserens utviklerverktøy (f.eks. Chrome DevTools) for å sjekke konsollen etter feilmeldinger.
+    -->
+  
+  </footer>
+  
+
+  <!--
+  Koble til den eksterne JavaScript-filen (theme_script.js), som inneholder funksjonene for å håndtere tema- og sesongendringer.
+  
+  Oppgave: Utforsk filen for å se hvordan JavaScript kan endre utseendet og gjøre siden mer interaktiv. Hvis du føler deg klar, kan du eksperimentere ved å lage dine egne funksjoner eller forbedre de eksisterende.
+  -->
+  <script src="js/theme_script.js"></script>
+
+</body>
+</html>

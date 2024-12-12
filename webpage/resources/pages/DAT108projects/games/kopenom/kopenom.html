@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    Dette er toppen av HTML-filen, også kjent som <head>. 
+    Her definerer vi metadata om nettsiden, som charset (UTF-8) for å støtte alle tegn, 
+    viewport for å gjøre siden responsiv på mobil, og lenker til CSS-filer for styling. 
+    -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creature Battle Game</title>
+    
+    <!-- Linker til spillspesifikke CSS-stiler for kjøpemon-spillet -->
+    <link rel="stylesheet" href="css/kopenom.css">
+
+    <!-- Hovedstilark for nettsiden, som inkluderer generelle stiler som layout og fonter -->
+    <link rel="stylesheet" href="../../styles/style.css">
+
+    <!-- Google Fonts - Her henter vi noen skrifttyper som kan brukes på siden -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&family=Merriweather:wght@300;400&family=Roboto:wght@300;400&family=Montserrat:wght@300;400&family=Nunito+Sans:wght@300;400&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- 
+  Dette er toppen av nettsiden, også kjent som "header". 
+  Her finner vi navigasjonsmenyen (nav), som lar brukerne navigere mellom sidens ulike deler. 
+  For denne øvelsen er det en enkel liste med lenker til forskjellige sider (Hjem, Om Meg, Prosjekter, Kontakt).
+  -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="about.html">Om Meg</a></li>
+        <li><a href="projects.html">Prosjekter</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hovedinnholdet på siden. Her er selve spillet plassert i en seksjon. -->
+
+    <!-- 
+    Dette er "game-container", som holder hele Pokémon-spillet. 
+    Merk at vi bruker et <form>-element for å la brukeren opprette en skapning (Creature).
+    -->
+
+    <section id="game-container">
+        
+        <!-- 
+        Form for å opprette en ny skapning. Brukeren må fylle ut navn og velge elementtype.
+        Dette skjemaet fanger input fra brukeren, som deretter brukes i spillet.
+        -->
+        <form id="creature-form">
+            <!-- Input-felt for å skrive inn navnet på skapningen -->
+            <label for="creature-name">Creature Name:</label>
+            <input type="text" id="creature-name" required>
+
+            <!-- Drop-down meny for å velge elementtypen til skapningen -->
+            <label for="creature-element">Choose Element:</label>
+            <select id="creature-element">
+                <!-- Elementtyper: fire, water, earth, air -->
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="earth">Earth</option>
+                <option value="air">Air</option>
+            </select>
+            <button type="submit">Create Creature</button> <!-- Knapp for å opprette skapningen -->
+        </form>
+
+        <!-- 
+        Når skapningen er opprettet, vises informasjon om den her. 
+        Merk at denne div-en er skjult til spillet starter, derfor er "display:none" satt. 
+        -->
+        <div id="creature-display" style="display:none;">
+            <h2>Your Creature</h2>
+            <p>Name: <span id="creature-name-display"></span></p>
+            <p>Element: <span id="creature-element-display"></span></p>
+            <p>HP: <span id="creature-hp-display"></span></p>
+            <p>Attack: <span id="creature-attack-display"></span></p>
+            <p>Defense: <span id="creature-defense-display"></span></p>
+            <!-- Knapp for å starte kampen -->
+            <button id="start-battle">Start Battle</button>
+        </div>
+
+        <!-- 
+        Denne seksjonen vises når vi forbereder oss på kamp. 
+        Vi viser status for både spillerens skapning og fienden. 
+        -->
+        <div id="battle-intro" style="display:none;">
+            <h2>Prepare for Battle!</h2>
+            <p id="player-intro-status"></p> <!-- Viser spillerens skapning sin status -->
+            <p id="enemy-intro-status"></p> <!-- Viser fiendens skapning sin status -->
+            <button id="proceed-to-battle">Proceed to Battle</button> <!-- Knapp for å fortsette til kampen -->
+        </div>
+
+        <!-- 
+        Dette er kampfasen. Her skjer alle angrepene, og vi ser statusen til begge skapningene.
+        Igjen, denne delen er skjult til kampen faktisk begynner.
+        -->
+        <div id="battle-phase" style="display:none;">
+          <p id="player-status"></p> <!-- Spillerens skapningsstatus (HP) under kampen -->
+          <p id="enemy-status"></p> <!-- Fiendens skapningsstatus (HP) under kampen -->
+
+          <!-- Brukeren velger et angrep fra en liste med mulige angrep -->
+          <label for="move-choice">Choose a Move:</label>
+          <select id="move-choice"></select>
+          <button id="attack-btn">Attack</button> <!-- Knapp for å utføre angrep -->
+        </div>
+
+        <!-- 
+        Når kampen er over, vises en knapp for å starte spillet på nytt. 
+        Denne delen er også skjult til kampen er over.
+        -->
+        <div id="restart-game" style="display:none;">
+            <button>Restart Game</button> <!-- Knapp for å starte spillet på nytt -->
+        </div>
+    </section>
+
+    <!-- Andre seksjoner av hovedinnhold kan plasseres her, utenfor spillområdet -->
+</main>
+
+
+<footer>
+    &copy; 2024 Min Personlige Nettside
+    
+    <!--
+    Denne delen inneholder knapper som lar brukeren endre temaet på siden 
+    (for eksempel bytte mellom lys og mørkt tema eller sesong-tema).
+    Disse knappene kan utvides til å bruke JavaScript-funksjoner som endrer utseendet dynamisk.
+    -->
+    <button id="toggleLightDark" aria-label="Veksle mellom lys og mørkt tema">Veksle Lys/Mørkt Tema</button>
+  
+    <button id="cycleSeason" aria-label="Veksle mellom sesongtemaer">Skift Sesong (Vår, Sommer, Høst, Vinter)</button>
+    
+    <button id="toggleSeasonAuto" aria-label="Automatiske sesongendringer">Automatiske sesongendringer: På</button>
+</footer>
+  
+
+<!-- 
+Linker til JavaScript-filer som inneholder funksjoner for å endre tema, og hovedspillet. 
+Merk at spill-skriptet er et "module" skript, som betyr at det støtter ES-moduler i JavaScript.
+-->
+<script src="../../js/theme_script.js"></script>
+<script type="module" src="js/game.js"></script>
+</body>
+</html>
