@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Interests | Erlend Raa Vågset</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Research Interests</h1>
+        <p>A deeper dive into everything from simplicial complexes to complexity theory.</p>
+        <button id="theme-toggle" class="btn">Toggle Theme</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html" class="active">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Topology Section -->
+        <section>
+            <h2>Exploring the Shape of Data with Topology</h2>
+            <p>
+                Topology is the study of shapes, spaces, and their connections. Unlike geometry, which focuses on precise measurements, topology emphasizes properties that remain unchanged under continuous deformations, like stretching or bending. It helps us ask fundamental questions: What does this space look like? How is it connected?
+            </p>
+            <p>
+                In data analysis, topology offers a unique perspective. Rather than examining individual data points, it focuses on global structures—clusters, loops, and gaps—that reveal the relationships within the data. These tools are particularly valuable in noisy, high-dimensional datasets where traditional methods often fail.
+            </p>
+        </section>
+
+        <!-- TDA Section -->
+        <section>
+            <h2>What is Topological Data Analysis (TDA)?</h2>
+            <p>
+                Topological Data Analysis (TDA) applies the principles of topology to real-world data, turning abstract mathematical ideas into actionable insights. One of its key techniques is <strong>persistent homology</strong>, which studies how structures in data—like clusters, loops, or voids—appear and disappear as we adjust our perspective.
+            </p>
+            <p>
+                Imagine slowly raising the water level over a mountain range. Peaks emerge, merge, and eventually vanish underwater. Persistent homology captures which peaks last the longest, highlighting the features that are most meaningful. Tools like persistence diagrams summarize this information, separating noise from structure and enabling us to uncover patterns invisible to traditional approaches.
+            </p>
+            <p>
+                TDA has been successfully applied in diverse fields:
+            </p>
+            <ul>
+                <li><strong>Neuroscience</strong>: Mapping brain connectivity to detect disruptions linked to diseases like Alzheimer’s.</li>
+                <li><strong>Genomics</strong>: Analyzing gene interactions by identifying clusters and structural relationships.</li>
+                <li><strong>Robotics</strong>: Planning efficient paths for robots by understanding the topology of their configuration spaces.</li>
+            </ul>
+        </section>
+
+        <!-- Complexity Theory Section -->
+        <section>
+            <h2>Complexity Theory: Understanding Computational Limits</h2>
+            <p>
+                While topology provides the tools to understand the structure of spaces and data, complexity theory addresses a fundamental question: Can these tools be applied effectively? It helps us evaluate the computational cost of solving problems and identify which challenges are feasible to tackle.
+            </p>
+            <p>
+                Many problems I work on are <strong>NP-hard</strong>, meaning that solving them outright for large inputs could take longer than the age of the universe. Complexity theory offers frameworks for exploring why problems are difficult and how we can make progress. For example:
+            </p>
+            <ul>
+                <li>Some problems allow for approximate solutions, where we trade precision for feasibility.</li>
+                <li>Others become easier when we focus on specific features, reducing the computational burden.</li>
+            </ul>
+        </section>
+
+        <!-- Parameterized Complexity Section -->
+        <section>
+            <h2>Parameterized Complexity: A Fine-Grained Perspective</h2>
+            <p>
+                Parameterized complexity builds on the ideas of complexity theory by zooming in on specific aspects of problems that influence their difficulty. It acknowledges that not all parts of a problem are equally hard to solve. Instead of treating a problem as a whole, parameterized algorithms focus on well-chosen parameters that can simplify the task.
+            </p>
+            <p>
+                Imagine trying to optimize a delivery route across hundreds of cities. If you know the number of delivery hubs is small, you can design algorithms that focus on just those hubs, ignoring less critical details. Similarly, parameterized complexity allows us to isolate and address the most critical aspects of computational problems.
+            </p>
+            <p>
+                In my work, I use parameterized complexity to study fundamental problems in topology, such as <strong>homology localization</strong>—identifying significant loops or structures in spaces. By making these topological properties computationally concrete, we can bridge the gap between abstract mathematics and practical computation.
+            </p>
+        </section>
+
+        <!-- Intersection Section -->
+        <section>
+            <h2>Bringing Complexity Theory and Parameterized Complexity Together</h2>
+            <p>
+                Complexity theory provides the "big picture" of computational difficulty, while parameterized complexity offers the tools to navigate it. Together, they create a framework for tackling NP-hard problems by identifying the most manageable aspects of a challenge.
+            </p>
+            <p>
+                For example:
+            </p>
+            <ul>
+                <li>Complexity theory tells us why computing persistent homology for large datasets is hard.</li>
+                <li>Parameterized complexity helps us design algorithms that focus on key features, like the number of dimensions or specific regions of interest, to make these computations feasible.</li>
+            </ul>
+            <p>
+                My research lies at the intersection of these fields, using parameterized algorithms to tackle problems in computational topology. By analyzing the computational cost of topological tools and designing efficient algorithms, I aim to uncover new ways of navigating the boundaries of computation.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Erlend Raa Vågset. Trying, failing, and occasionally succeeding since 1993.</p>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
