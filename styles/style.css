@@ -38,7 +38,7 @@ body {
     max-width: 900px;
     margin: 40px auto;
     padding: 30px;
-    background: url('/textures/paper.png') repeat; /* Default paper background */
+    background: url('../textures/paper.png') repeat; /* Default paper background */
     background-size: 1000px 1000px; /* Scale down the texture for a finer appearance */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -48,7 +48,7 @@ body {
 
 /* Switch to Blackboard Texture in Dark Mode */
 body.dark-mode .container {
-    background: url('/textures/blackboard.jpg') repeat; /* Blackboard texture for dark mode */
+    background: url('../textures/blackboard.jpg') repeat; /* Blackboard texture for dark mode */
     background-size: 500px 500px; /* Cover ensures full background scaling */
 }
 
