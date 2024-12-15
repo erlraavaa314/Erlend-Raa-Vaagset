@@ -9,12 +9,12 @@
 </head>
 <body>
     <header>
-        <h1>Welcome</h1>
-        <p>Welcome to my webpage. Grab a coffee, sit down and relax for a while!</p>
-        <button id="theme-toggle" class="btn">Toggle Theme</button>
+        <h1>Erlend Raa Vågset</h1>
+        <p>Assistant Professor at HVL</p>
+        <button id="theme-toggle" class="btn"></button>
     </header>
-
-    <nav>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -23,6 +23,20 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+
+    <button id="menu-toggle" class="burger">☰</button>
+
+    <div id="overlay" class="overlay">
+        <button id="close-overlay" class="close-btn">×</button>
+        <ul class="overlay-menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
 
     <main class="container">
         <!-- Welcome Section -->
@@ -43,7 +57,7 @@
             <h2>TL;DR</h2>
             <p>
                 Hi, I’m Erlend Raa Vågset. I’m an Assistant Professor at HVL in Førde, Norway, where I focus on computational complexity, algorithms, and topology. 
-                My teaching focuses on making computer science fun and accessible, while my research explores how we can solve "impossible" problems—or at least, make them slightly less impossible.
+                In my teaching, I aim to make computer science fun and accessible, while my research explores how we can solve "impossible" problems—or at least, make them slightly less impossible.
             </p>
             <p>
                 At the crossroads of teaching and research, I aim to spark curiosity and uncover creative solutions to complex computational problems.
@@ -57,7 +71,7 @@
             <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 20px;">
                 <div style="text-align: center;">
                     <a href="about.html">
-                        <img src="images/cabin.jpg" alt="About Me" style="width:200px; height:auto;">
+                        <img src="images/math.jpg" alt="About Me" style="width:200px; height:auto;">
                     </a>
                     <p><a href="about.html">About Me</a></p>
                 </div>

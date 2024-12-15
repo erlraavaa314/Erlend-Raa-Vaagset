@@ -9,20 +9,34 @@
 </head>
 <body>
     <header>
-        <h1>Teaching and Mentoring</h1>
-        <p>Inspiring curiosity, creativity, and critical thinking in computer science.</p>
+        <h1>Erlend Raa Vågset</h1>
+        <p>Assistant Professor at HVL</p>
         <button id="theme-toggle" class="btn">Toggle Theme</button>
     </header>
-
-    <nav>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="research.html">Research</a></li>
-            <li><a href="teaching.html" class="active">Teaching</a></li>
+            <li><a href="teaching.html"class="active">Teaching</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+
+    <button id="menu-toggle" class="burger">☰</button>
+
+    <div id="overlay" class="overlay">
+        <button id="close-overlay" class="close-btn">×</button>
+        <ul class="overlay-menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html"class="active">Teaching</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
 
     <main class="container">
         <!-- Teaching Overview -->
@@ -70,6 +84,31 @@
             <p>
                 If you’re interested in learning more about my courses, mentoring opportunities, or outreach activities, feel free to <a href="contact.html">get in touch</a>. Let’s create something exciting together.
             </p>
+        </section>
+        
+        <!-- Explore More Section -->
+        <section>
+            <h2>Explore More</h2>
+            <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <a href="about.html">
+                        <img src="images/math.jpg" alt="About Me" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="about.html">About Me</a></p>
+                </div>
+                <div style="text-align: center;">
+                    <a href="contact.html">
+                        <img src="images/cabin.jpg" alt="Contact" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="contact.html">Contact Me</a></p>
+                </div>
+                <div style="text-align: center;">
+                    <a href="research.html">
+                        <img src="images/misc.jpg" alt="Research" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="research.html">Research</a></p>
+                </div>
+            </div>
         </section>
     </main>
 

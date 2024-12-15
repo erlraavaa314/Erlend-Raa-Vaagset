@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Interests | Erlend Raa Vågset</title>
+    <title>Research | Erlend Raa Vågset</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
-        <h1>Research Interests</h1>
-        <p>A deeper dive into everything from simplicial complexes to complexity theory.</p>
+        <h1>Erlend Raa Vågset</h1>
+        <p>Assistant Professor at HVL</p>
         <button id="theme-toggle" class="btn">Toggle Theme</button>
     </header>
-
-    <nav>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -23,6 +23,20 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+
+    <button id="menu-toggle" class="burger">☰</button>
+
+    <div id="overlay" class="overlay">
+        <button id="close-overlay" class="close-btn">×</button>
+        <ul class="overlay-menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html"class="active">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
 
     <main class="container">
         <!-- Topology Section -->
@@ -100,6 +114,33 @@
             <p>
                 My research lies at the intersection of these fields, using parameterized algorithms to tackle problems in computational topology. By analyzing the computational cost of topological tools and designing efficient algorithms, I aim to uncover new ways of navigating the boundaries of computation.
             </p>
+        </section>
+
+        
+
+        <!-- Explore More Section -->
+        <section>
+            <h2>Explore More</h2>
+            <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <a href="about.html">
+                        <img src="images/math.jpg" alt="About Me" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="about.html">About Me</a></p>
+                </div>
+                <div style="text-align: center;">
+                    <a href="contact.html">
+                        <img src="images/cabin.jpg" alt="Contact" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="contact.html">Contact Me</a></p>
+                </div>
+                <div style="text-align: center;">
+                    <a href="teaching.html">
+                        <img src="images/studentactive.jpg" alt="Teaching" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="teaching.html">Teaching</a></p>
+                </div>
+            </div>
         </section>
     </main>
 

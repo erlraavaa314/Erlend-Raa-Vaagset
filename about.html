@@ -3,26 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Erlend Raa Vågset</title>
+    <title>About | Erlend Raa Vågset</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
-        <h1>About Me</h1>
-        <p>Exploring the structure of computation and the computation of structure.</p>
+        <h1>Erlend Raa Vågset</h1>
+        <p>Assistant Professor at HVL</p>
         <button id="theme-toggle" class="btn">Toggle Theme</button>
     </header>
-
-    <nav>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="about.html"class="active">About</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="teaching.html">Teaching</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+
+    <button id="menu-toggle" class="burger">☰</button>
+
+    <div id="overlay" class="overlay">
+        <button id="close-overlay" class="close-btn">×</button>
+        <ul class="overlay-menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html"class="active">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
 
     <main class="container">
         <!-- Introduction -->
@@ -111,7 +125,7 @@
                 <a href="contact.html">
                     <img src="images/cabin.jpg" alt="Contact" style="width:200px; height:auto;">
                 </a>
-                <p><a href="about.html">Contact</a></p>
+                <p><a href="contact.html">Contact</a></p>
             </div>
             <div style="text-align: center;">
                 <a href="research.html">
