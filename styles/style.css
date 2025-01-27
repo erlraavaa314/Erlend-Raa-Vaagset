@@ -160,7 +160,8 @@ footer {
 .burger {
     display: none;
     position: absolute;
-    top: 10px;
+    top: auto;
+    bottom: 20px; /* Push it down to avoid overlap */
     left: 20px;
     font-size: 2.5rem;
     background: none;
@@ -232,6 +233,13 @@ footer {
     nav ul {
         display: none;
     }
+    /* Move burger button below header */
+    .burger {
+        top: auto;
+        bottom: 20px; /* Push it down to avoid overlap */
+        left: 20px;
+    }
+
 
     .container {
       margin: 20px auto;
@@ -241,6 +249,25 @@ footer {
     p {
        font-size: 1.4rem;
     }
+
+    header h1 {
+        font-size: 2.2rem; /* Smaller title on mobile */
+    }
+
+    header p {
+       font-size: 1.2rem;
+    }
+    
+   section figure img {
+    max-width: 100%; /* Ensure images don't overflow */
+    margin: 10px auto;
+   }
+  
+    /* Slightly reduce margin of explore more section on mobile */
+    section > div > div {
+      margin: 10px;
+    }
+
 }
 
 /*Section styling */
