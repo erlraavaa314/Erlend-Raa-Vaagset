@@ -13,7 +13,7 @@ body {
 
 /* Light Mode */
 :root {
-    --bg-color: #000000; /* Soft white/yellowish paper */
+    --bg-color: #f8f8f8; /* Soft white/yellowish paper */
     --text-color: #2a2a2a; /* Graphene-like color */
     --accent-primary: #a58260; /* Muted tan accent */
     --accent-secondary: #556b2f; /* Forest green for links and highlights */
@@ -28,7 +28,7 @@ body.dark-mode {
     --bg-color: #303030; /* Blackboard background */
     --text-color: #f8f8f8; /* Chalky white for text */
     --accent-primary: #68b0ab; /* Subtle teal for accents */
-    --accent-secondary: #f8f8f8; /* Consistent chalk-white secondary color */
+    --accent-secondary: #68b0ab; /* Consistent chalk-white secondary color */
     --header-footer-color: #ffffff;
     --header-subtitle-color: #e0e0e0; /* Light muted chalk-gray */
 }
@@ -57,9 +57,10 @@ body.dark-mode {
 /* Header */
 header {
     text-align: center;
-    padding: 15px 0; /* Compressed header */
+    padding: 5px 0; /* Compressed header */
     border-bottom: 2px solid var(--accent-primary);
     color: var(--header-footer-color);
+    position: relative; /* For absolute positioning of the toggle button */
 }
 
 header h1 {
@@ -73,6 +74,7 @@ header p {
     color: var(--header-subtitle-color);
     margin: 0;
 }
+
 /* Theme Toggle Button */
 header .btn {
     position: absolute;
@@ -99,7 +101,6 @@ header .btn:hover {
 header .btn span {
     margin-left: 8px; /* Space between text and icon */
 }
-
 
 /* Navigation */
 nav ul {
@@ -128,6 +129,7 @@ nav ul li a:hover,
 nav ul li a.active {
     color: var(--accent-primary);
 }
+
 
 /* Text */
 p {
@@ -230,4 +232,46 @@ footer {
     nav ul {
         display: none;
     }
+
+    .container {
+      margin: 20px auto;
+      padding: 20px;
+    }
+    
+    p {
+       font-size: 1.4rem;
+    }
+}
+
+/*Section styling */
+
+.content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+section figure {
+    max-width: 700px;
+    margin: 20px auto;
+}
+section figure img {
+   width: 100%;
+   height: auto;
+   border-radius: 8px;
+   border: 1px solid var(--accent-primary);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+  
+a:hover {
+    color: var(--accent-primary);
+}
+body.dark-mode a {
+   color: var(--accent-secondary);
 }

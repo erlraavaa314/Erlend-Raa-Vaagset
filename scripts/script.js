@@ -37,3 +37,9 @@ if (burger && overlay && closeOverlay) {
         overlay.classList.remove('open');
     });
 }
+
+
+// Load navigation bar
+$(function(){
+  $("#nav-placeholder").load("nav.html");
+});
