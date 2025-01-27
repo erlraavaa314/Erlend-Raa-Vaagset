@@ -302,3 +302,15 @@ a:hover {
 body.dark-mode a {
    color: var(--accent-secondary);
 }
+
+/* New page-specific section styling */
+body.about-page section, body.contact-page section, body.research-page section, body.teaching-page section{
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/*Correct styling of sections in index.html*/
+body.index-page section > div{
+    max-width: 700px;
+    margin: 0 auto;
+}
