@@ -320,3 +320,53 @@ body.dark-mode a {
     align-items: center;
     margin-top: 20px;
 }
+
+/* Publication List Styling */
+.publication-item {
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--accent-primary);
+     display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns items to the top */
+    padding-bottom: 15px; /* Space below each item */
+}
+
+.publication-item:last-child {
+    border-bottom: none; /* Removes the bottom border from the last publication item */
+}
+
+.publication-content {
+    flex: 1;
+}
+
+.publication-info {
+    display:flex;
+    flex-direction: column; /* stack info vertically */
+    align-items: flex-start;
+}
+
+.publication-info p {
+    margin: 0;
+    padding: 0;
+}
+.publication-info a:hover {
+   color: var(--accent-primary);
+}
+
+/* mobile adjustments for publications*/
+@media (max-width: 768px) {
+    .publication-item {
+         flex-direction: column; /* On mobile, items stack vertically */
+         align-items: flex-start; /* Aligns items to the left */
+    }
+    .publication-info {
+        flex-direction: column; /* On mobile, info stacks vertically */
+        align-items: flex-start;
+    }
+    .publication-info img {
+       margin:10px auto 0 auto;
+       float: none !important;
+       display: block;
+       max-width: 100% !important;
+    }
+}

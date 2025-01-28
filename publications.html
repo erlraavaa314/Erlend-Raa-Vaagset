@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Erlend Raa Vågset</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+<body class="publications-page">
+    <header>
+        <h1>Erlend Raa Vågset</h1>
+        <p>Assistant Professor at HVL</p>
+        <button id="theme-toggle" class="btn">Toggle Theme</button>
+    </header>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="publications.html" class="active">Publications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button id="menu-toggle" class="burger">☰</button>
+
+    <div id="overlay" class="overlay">
+        <button id="close-overlay" class="close-btn">×</button>
+        <ul class="overlay-menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+             <li><a href="publications.html" class="active">Publications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <main class="container">
+         <section>
+            <h2>Publications</h2>
+            <p>Here's a list of my publications. If you want the details, check out the links. Or just send me a message if you have any questions.</p>
+        </section>
+      
+        <section>
+          <ul style="list-style:none; padding: 0;">
+             <li class = "publication-item">
+                  <div class="publication-content">
+                      <h3>PhD Thesis: "Optimal Parameterized Algorithms for Solving NP-Hard Problems in Topology"</h3>
+                      <p>This thesis combines parameterized complexity theory with computational topology, focusing on the development of FPT algorithms for fundamental problems like homology localization, minimum bounded chains, and subsurface recognition. The work introduces new techniques such as WiPS reductions, establishes several hardness results, and proves that some algorithms are optimal under the Exponential Time Hypothesis (ETH), showcasing the potential of parameterized techniques in tackling complex topological problems. It also contains several new results not contained in the papers listed below.</p>
+                       <div class = "publication-info">
+                        <p><em>University of Bergen, 2024.</em></p>
+                         <a href="images/phdcomics.png" target = "_blank" style="float:right"> <img src="images/thesis.png" alt="Image for Phd Thesis" style="width:100%; height:auto; display:block;"> </a>
+                       </div>
+                  </div>
+                 </li>
+                
+                <li class = "publication-item">
+                  <div class="publication-content">
+                      <h3>"ETH-Tight Algorithms for Finding Surfaces in Simplicial Complexes of Bounded Treewidth"</h3>
+                       <p>This paper investigates the parameterized complexity of finding surfaces in simplicial complexes, introducing novel FPT algorithms based on treewidth for various variants of the subsurface recognition problem. It establishes ETH-lower bounds, proving the optimality of the designed algorithms under a common hardness hypothesis, and it demonstrates the applicability of the WiPS reduction technique.</p>
+                     <div class = "publication-info">
+                        <p><em>Symposium on Computational Geometry (SoCG), 2022.</em>  <a href="https://doi.org/10.4230/LIPIcs.SoCG.2022.17" target="_blank">DOI Link</a>
+                        </p>
+                        <a href="images/unsolved_math_problems_2x.png" target = "_blank" style="float:right"> <img src="images/subsurf.png" alt="Image for ETH-Tight Algoritms" style="width:100%; height:auto; display:block;"> </a>
+                     </div>
+                    </div>
+                </li>
+
+                <li class = "publication-item">
+                    <div class="publication-content">
+                       <h3>"The Parameterized Complexity of Finding Minimum Bounded Chains"</h3>
+                       <p>This paper delves into the parameterized complexity of finding minimum bounded chains, a problem with roots in both optimization and topology. It explores the effect of various parameters, such as solution size, coface degree and treewidth. It also gives an FPT algorithm using coface degree and solution size and improves on previously known hardness results. </p>
+                         <div class = "publication-info">
+                         <p> <em>Computational Geometry, 2024.</em> <a href="https://doi.org/10.1016/j.comgeo.2023.102102" target="_blank">DOI Link</a></p>
+                           <div style="margin-top: 10px">
+                           <a href="images/math.jpg" target = "_blank" style="float:right"> <img src="images/minbdchn2.png" alt="Image for Minimum Bounded Chains" style="width:100%; height:auto; display:block;"> </a>
+                           </div>
+                         </div>
+                    </div>
+                </li>
+
+                 <li class = "publication-item">
+                     <div class="publication-content">
+                          <h3>"Homology Localization Through the Looking-Glass of Parameterized Complexity Theory"</h3>
+                         <p>This paper introduces the framework of parameterized complexity to the problem of finding optimal geometric representatives of homology classes. It establishes new hardness results and develops FPT algorithms using treewidth. This provides new insights for studying the complexity of problems in algebraic topology and demonstrates the power of parameterization techniques.</p>
+                            <div class = "publication-info">
+                             <p><em>Preprint, arXiv, 2020.</em>  <a href="https://arxiv.org/abs/2011.14490" target="_blank">Preprint Link</a>
+                             </p>
+                               <div style = "margin-top:10px">
+                                 <a href="images/erlendand.jpg" target = "_blank" style="float:right"> <img src="images/homloc.png" alt="Image for Homology Localization" style="width:100%; height:auto; display:block;"> </a>
+                               </div>
+                            </div>
+                         </div>
+                 </li>
+   
+       
+                <li class = "publication-item">
+                     <div class = "publication-content">
+                          <h3>"Linear MIM-Width of Trees"</h3>
+                          <p> We provided a linearithmic algorithm for computing the linear
+                            maximum induced matching width of a tree and an optimal layout </p>
+                           <div class = "publication-info">
+                                <p><em>International Workshop on Graph-Theoretic Concepts in Computer Science (WG), 2019.</em>
+                             <a href="https://doi.org/10.1007/978-3-030-30786-8_17" target="_blank">DOI Link</a>
+                                </p>
+                              <div style = "margin-top:10px">
+                              <a href="images/lmimw.png" target = "_blank" style="float:right"> <img src="images/lmimw.png" alt="Image for Linear MIM-Width" style="width:100%; height:auto; display:block;"> </a>
+                            </div>
+                               </div>
+                           </div>
+                 </li>
+            </ul>
+        </section>
+       <!-- Explore More Section -->
+   
+        <!-- Explore More Section -->
+        <section>
+            <h2>Explore More</h2>
+            <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <a href="about.html">
+                        <img src="images/math.jpg" alt="About Me" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="about.html">About Me</a></p>
+                </div>
+                <div style="text-align: center;">
+                    <a href="contact.html">
+                        <img src="images/cabin.jpg" alt="Contact" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="contact.html">Contact Me</a></p>
+                </div>
+                <div style="text-align: center;">
+                    <a href="teaching.html">
+                        <img src="images/studentactive.jpg" alt="Teaching" style="width:200px; height:auto;">
+                    </a>
+                    <p><a href="teaching.html">Teaching</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Erlend Raa Vågset. Trying, failing, and occasionally succeeding since 1993.</p>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
