@@ -50,28 +50,98 @@
                 Topology is the study of shapes, spaces, and their connections. Unlike geometry, which focuses on precise measurements, topology emphasizes properties that remain unchanged under continuous deformations, like stretching or bending. It helps us ask fundamental questions: What does this space look like? How is it connected?
             </p>
             <p>
-                In data analysis, topology offers a unique perspective. Rather than examining individual data points, it focuses on global structures—clusters, loops, and gaps—that reveal the relationships within the data. These tools are particularly valuable in noisy, high-dimensional datasets where traditional methods often fail.
+                A classic example of this principle is the famous <strong>mug-to-torus transformation</strong>. 
+                In topology, a coffee mug with a handle is often considered equivalent to a doughnut (torus) because one can be smoothly deformed into the other without cutting or gluing. 
+                But what if we take things even further?
+            </p>
+    
+            <figure>
+                <video autoplay loop muted playsinline>
+                    <source src="images/dougcup.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <figcaption>
+                    This unusual coffee mug starts with a <strong>doughnut-like hole in the center</strong> instead of a flat base. 
+                    As it morphs, its structure changes until it becomes a <strong>genus-three surface</strong>—a shape with three distinct loops. 
+                    This transformation highlights how topology classifies shapes based on their connectivity rather than their rigid form. 
+                    Animation by <a href="https://www.reddit.com/r/math/comments/1cg5h77/animated_a_doughnut_mug/" target="_blank">MachiToons</a>.
+                </figcaption>
+            </figure>
+    
+            <p>
+                In data analysis, topology offers a similar perspective. Rather than examining individual data points, 
+                it focuses on <strong>global structures</strong>—clusters, loops, and gaps—that reveal the relationships within the data. 
+                These tools are particularly valuable in noisy, high-dimensional datasets where traditional methods often fail.
             </p>
         </section>
 
         <!-- TDA Section -->
-        <section>
-            <h2>What is Topological Data Analysis (TDA)?</h2>
-            <p>
-                Topological Data Analysis (TDA) applies the principles of topology to real-world data, turning abstract mathematical ideas into actionable insights. One of its key techniques is <strong>persistent homology</strong>, which studies how structures in data—like clusters, loops, or voids—appear and disappear as we adjust our perspective.
-            </p>
-            <p>
-                Imagine slowly raising the water level over a mountain range. Peaks emerge, merge, and eventually vanish underwater. Persistent homology captures which peaks last the longest, highlighting the features that are most meaningful. Tools like persistence diagrams summarize this information, separating noise from structure and enabling us to uncover patterns invisible to traditional approaches.
-            </p>
-            <p>
-                TDA has been successfully applied in diverse fields:
-            </p>
-            <ul>
-                <li><strong>Neuroscience</strong>: Mapping brain connectivity to detect disruptions linked to diseases like Alzheimer’s.</li>
-                <li><strong>Genomics</strong>: Analyzing gene interactions by identifying clusters and structural relationships.</li>
-                <li><strong>Robotics</strong>: Planning efficient paths for robots by understanding the topology of their configuration spaces.</li>
-            </ul>
-        </section>
+        <!-- TDA Section -->
+<section>
+    <h2>What is Topological Data Analysis (TDA)?</h2>
+    <p>
+        Topological Data Analysis (TDA) applies the principles of topology to real-world data, turning abstract mathematical ideas into actionable insights. 
+        One of its key techniques is <strong>persistent homology</strong>, which studies how structures in data—like clusters, loops, or voids—appear and disappear as we adjust our perspective.
+    </p>
+    
+    <p>
+        An excellent introduction to persistent homology, featuring many beautiful animations, is given in 
+        <a href="https://towardsdatascience.com/persistent-homology-with-examples-1974d4b9c3d0" target="_blank">Gary Koplik's blog post</a>. 
+        The animation below demonstrates how the <strong>topological summary of a dataset evolves</strong> as points move.
+    </p>
+    
+    <figure>
+        <img src="images/perstop.gif" alt="Visualization of 1D persistent homology as loops form in a dataset">
+        <figcaption>
+            Initially, the points are scattered randomly, but they gradually reorganize into three distinct circles. 
+            As the dataset changes, the persistence diagram tracks topological features: three prominent points appear far above the diagonal, 
+            corresponding to the three 1-dimensional loops. The animation illustrates how persistent homology captures these evolving structures.
+            The animation is taken from <a href="https://towardsdatascience.com/persistent-homology-with-examples-1974d4b9c3d0" target="_blank">Gary Koplik's article</a>.
+        </figcaption>
+    </figure>
+
+    <p>
+        Imagine slowly raising the water level over a mountain range. Peaks emerge, merge, and eventually vanish underwater. 
+        Persistent homology captures which peaks last the longest, highlighting the features that are most meaningful. 
+        Tools like persistence diagrams summarize this information, separating noise from structure and enabling us to uncover patterns invisible to traditional approaches.
+    </p>
+    <figure>
+        <img src="images/morse.gif" alt="Morse decomposition demonstrating level sets and topological changes">
+        <figcaption>
+            A related idea is <strong>Morse theory</strong>, which studies how topological features appear and disappear as we vary a function. 
+            This animation by <a href="https://www-sop.inria.fr/members/Mathijs.Wintraecken/Mathematica.html" target="_blank">Mathijs Wintraecken</a> 
+            illustrates how level sets evolve, similar to how persistent homology tracks topological changes in data.
+        </figcaption>
+    </figure>
+    <p>
+        A striking example of TDA in action comes from the work of <strong>May-Britt and Edvard Moser</strong>, 
+        who received the <a href="https://www.nobelprize.org/prizes/medicine/2014/summary/" target="_blank">2014 Nobel Prize in Medicine</a> for their discovery of grid cells—neurons that help animals navigate space. 
+        More recently, their research revealed that <strong>grid cell activity is structured on a toroidal manifold</strong>, demonstrating how TDA can uncover hidden geometric patterns in complex neural data.
+    </p>
+    <figure>
+        <img src="images/moser.png" alt="Persistent homology of grid cells, showing a toroidal topology in neural activity">
+        <figcaption>
+            This visualization from the Moser group shows what Topological Data Analysis (TDA) looks like in practice. 
+            The structure revealed in neural activity forms a toroidal (doughnut-shaped) topology, identified using persistent homology. 
+            Image from: Gardner, R. J., Hermansen, E., Pachitariu, M., Burak, Y., Baas, N. A., Dunn, B. A., Moser, M. B., & Moser, E. I. (2022). 
+            <em>Toroidal topology of population activity in grid cells</em>. <em>Nature</em>, 602, 123–128. 
+            <a href="https://doi.org/10.1038/s41586-021-04268-7" target="_blank">DOI: 10.1038/s41586-021-04268-7</a>. 
+            Open access under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0 License</a>.
+        </figcaption>
+    </figure>
+    <p>
+        Beyond neuroscience, TDA has found applications in many fields:
+    </p>
+    <ul>
+        <li><strong>Genomics:</strong> Identifying clusters of gene expression and structural variations in DNA.</li>
+        <li><strong>Material Science:</strong> Detecting structural weaknesses and voids in porous materials.</li>
+        <li><strong>Robotics:</strong> Mapping efficient movement paths by analyzing the topology of robot configuration spaces.</li>
+        <li><strong>3D Model Analysis:</strong> Finding errors, inconsistencies, and gaps in computer-generated models.</li>
+        <li><strong>Artificial Neural Networks:</strong> Understanding the hidden structure of deep learning models and optimizing their training.</li>
+        <li><strong>Sensor Networks:</strong> Identifying coverage gaps in distributed sensor systems.</li>
+    </ul>
+</section>
+
 
         <!-- Complexity Theory Section -->
         <section>
