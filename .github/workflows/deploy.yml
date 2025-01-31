@@ -6,7 +6,7 @@ on:
       - main  # Runs when pushing to the main branch
 
 permissions:
-  pages: write  # Grants only GitHub Pages deployment permission
+  pages: write  # Only gives permission for GitHub Pages
   id-token: write  # Required for authentication
 
 jobs:
@@ -14,15 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4  # Latest version
+        uses: actions/checkout@v4
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4  # Latest version
+        uses: actions/configure-pages@v4
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3  # Updated to v3
+      - name: Upload static files  # This ensures your HTML, CSS, and JS are deployed
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./
+          path: .  # Deploy everything in the repository root
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
+
