@@ -6,8 +6,8 @@ on:
       - main  # Runs when pushing to the main branch
 
 permissions:
-  pages: write  # Only gives permission for GitHub Pages
-  id-token: write  # Required for authentication
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
@@ -19,10 +19,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload static files
+      - name: Upload website files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .  # Deploy everything in the repository root
+          path: .  # This must match your repo structure
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
