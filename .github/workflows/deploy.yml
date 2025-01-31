@@ -19,11 +19,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload static files  # This ensures your HTML, CSS, and JS are deployed
+      - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
           path: .  # Deploy everything in the repository root
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
-
