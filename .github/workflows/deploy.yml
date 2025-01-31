@@ -6,9 +6,8 @@ on:
       - main  # Runs when pushing to the main branch
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  pages: write  # Grants only Pages deployment permission
+  id-token: write  # Required for authentication
 
 jobs:
   deploy:
@@ -17,16 +16,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Git
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages  # Deploys to GitHub Pages
-          publish_dir: ./
-          allow_empty_commit: true
-          force_orphan: true  # Ensures the gh-pages branch is clean
+        uses: actions/deploy-pages@v2
