@@ -1,48 +1,51 @@
-    /* General Styles */
-    body {
-        font-family: 'Nunito', sans-serif;
-        margin: 0;
-        padding: 0;
-        font-size: 22px;
-        line-height: 1.9;
-        transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
-    }
+/* Google Fonts - Load first */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Handlee&display=swap');
+
+/* Light Mode */
+:root {
+    --bg-color: #f8f8f8;
+    --text-color: #2a2a2a;
+    --accent-primary: #a58260;
+    --accent-secondary: #556b2f;
+    --header-footer-color: #2a2a2a;
+    --header-subtitle-color: #5a5a5a;
     
-    /* Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Schoolbell&display=swap');
-    
-    /* Light Mode */
-    :root {
-        --bg-color: #f8f8f8;
-        --text-color: #2a2a2a;
-        --accent-primary: #a58260;
-        --accent-secondary: #556b2f;
-        --header-footer-color: #2a2a2a;
-        --header-subtitle-color: #5a5a5a;
-        --font-light: 'Patrick Hand', cursive;
-        --font-dark: 'Schoolbell', cursive;
-    }
-    
-    /* Dark Mode (Blackboard) */
-    body.dark-mode {
-        --bg-color: #303030;
-        --text-color: #f8f8f8;
-        --accent-primary: #68b0ab;
-        --accent-secondary: #68b0ab;
-        --header-footer-color: #ffffff;
-        --header-subtitle-color: #e0e0e0;
-    }
-    
-    body {
-        background: var(--bg-color) url('../textures/paper.png') repeat;
-        color: var(--text-color);
-        font-family: var(--font-light);
-    }
-    
-    body.dark-mode {
-        background: var(--bg-color) url('../textures/blackboard.jpg') repeat;
-        font-family: var(--font-dark);
-    }
+    /* Typewriter font for light mode */
+    --font-light: 'Courier Prime', monospace;
+
+    /* Clean sans-serif font for structured content */
+    --font-publication: 'Nunito', sans-serif;
+}
+
+/* Dark Mode (Blackboard) */
+body.dark-mode {
+    --bg-color: #303030;
+    --text-color: #f8f8f8;
+    --accent-primary: #68b0ab;
+    --accent-secondary: #68b0ab;
+    --header-footer-color: #ffffff;
+    --header-subtitle-color: #e0e0e0;
+
+    /* Less extreme, readable chalk-like font */
+    --font-dark: 'Handlee', cursive;
+}
+
+/* Apply fonts */
+body {
+    background: var(--bg-color) url('../textures/paper.png') repeat;
+    color: var(--text-color);
+    font-family: var(--font-light), monospace;  /* Typewriter font in light mode */
+}
+
+body.dark-mode {
+    background: var(--bg-color) url('../textures/blackboard.jpg') repeat;
+    font-family: var(--font-dark), sans-serif;  /* Handwritten but readable */
+}
+
+
+
+/* Rest of your styles remain unchanged... */
+
     
     /* Main Container */
     .container {
@@ -369,4 +372,17 @@ body.dark-mode a {
        display: block;
        max-width: 100% !important;
     }
+}
+
+
+/* Fix publication title size */
+.publication-content h3 {
+    font-size: 1.9rem; /* Ensure it's larger than the body text */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Balance paragraph size */
+.publication-content p {
+    font-size: 1.6rem;
 }
