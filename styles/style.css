@@ -263,17 +263,17 @@ ul li {
     
         header h1 {
             font-size: 2.2rem;           
-            margin-top: 75px; /* Move the title down */
+            margin-top: 50px; /* Move the title down */
  
         }
     
         header p {
            font-size: 1.2rem;
-           margin-top: 50px; /* Move subtitle down slightly */
+           margin-top: 10px; /* Move subtitle down slightly */
         }
         
         header {
-            padding-top: 10px; /* Add space inside the header */
+            padding-top: 50px; /* Add space inside the header */
         }
     
     
