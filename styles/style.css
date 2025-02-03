@@ -42,6 +42,18 @@ body.dark-mode {
     font-family: var(--font-dark), sans-serif;  /* Handwritten but readable */
 }
 
+/* Ensure lists match paragraph font size */
+ul {
+    font-size: 1.6rem;  /* Same as paragraph */
+    line-height: 1.9;   /* Ensures readability */
+    padding-left: 20px; /* Keeps bullets aligned */
+}
+
+ul li {
+    font-size: inherit; /* Ensures consistency */
+    line-height: inherit;
+    margin-bottom: 10px; /* Adds spacing */
+}
 
 
 /* Rest of your styles remain unchanged... */
@@ -230,6 +242,7 @@ body.dark-mode {
     
     /* Mobile-Specific Styles */
     @media (max-width: 768px) {
+        
         .burger {
             display: block;
         }
@@ -255,6 +268,10 @@ body.dark-mode {
            font-size: 1.2rem;
         }
         
+        header {
+            padding-top: 40px; /* Increase top padding */
+        }
+
        section figure img {
         max-width: 100%;
         margin: 10px auto;

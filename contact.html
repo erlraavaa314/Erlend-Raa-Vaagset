@@ -53,7 +53,13 @@
         <section>
             <h2>Contact Me Directly</h2>
             <p>For professional inquiries or collaboration ideas, email me at:</p>
-            <p><strong>"firstname"."middlename".vagset at hvl.no</strong></p>
+            <p id="email"></p>
+
+<script>
+  const email = "firstname.middlename.vagset" + String.fromCharCode(64) + "hvl.no";
+  document.getElementById("email").innerHTML = `<strong>${email}</strong>`;
+</script>
+
             <p>Note: Responses may take a few days depending on my workload.</p>
             <figure style="text-align: center;">
                 <img src="images/vagset.JPG" alt="Bayfarm" style="width:100%; height:auto;">
@@ -66,10 +72,10 @@
             <h2>Find Me Online</h2>
             <p>Explore my work, connect with me, or see what I’m up to:</p>
             <ul>
-                <li><strong><a href="https://www.hvl.no">HVL Homepage</a></strong> – Department profile and current projects.</li>
-                <li><strong><a href="https://scholar.google.com">Google Scholar</a></strong> – Publications and citations.</li>
-                <li><strong><a href="https://www.researchgate.net">ResearchGate</a></strong> – Collaborations and preprints.</li>
-                <li><strong><a href="https://github.com">GitHub</a></strong> – Open-source projects and teaching tools.</li>
+                <li><strong><a href="https://www.hvl.no/en/employee/?user=Erlend.Raa.Vagset">HVL Homepage</a></strong> – Department profile and current projects.</li>
+                <li><strong><a href="https://scholar.google.com/citations?user=mqbULaYAAAAJ&hl=en">Google Scholar</a></strong> – Publications and citations.</li>
+                <li><strong><a href="https://www.researchgate.net/profile/Erlend-Vagset">ResearchGate</a></strong> – Collaborations and preprints.</li>
+                <li><strong><a href="https://github.com/erlraavaa314">GitHub</a></strong> – Open-source projects and teaching tools.</li>
             </ul>
             <figure style="text-align: center;">
                 <img src="images/erlendgoat.jpeg" alt="The view from Fløyen of Bergen" style="width:100%; height:auto;">
