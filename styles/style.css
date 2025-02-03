@@ -261,17 +261,21 @@ ul li {
         }
     
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.2rem;           
+            margin-top: 20px; /* Move the title down */
+ 
         }
     
         header p {
            font-size: 1.2rem;
+           margin-top: 10px; /* Move subtitle down slightly */
         }
         
         header {
-            padding-top: 40px; /* Increase top padding */
+            padding-top: 20px; /* Add space inside the header */
         }
-
+    
+    
        section figure img {
         max-width: 100%;
         margin: 10px auto;
