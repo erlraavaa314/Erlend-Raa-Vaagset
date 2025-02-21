@@ -150,34 +150,114 @@
 </section>
 
 
-        <!-- Complexity Theory Section -->
-        <section>
-            <h2>Complexity Theory: Understanding Computational Limits</h2>
-            <p>
-                While topology provides the tools to understand the structure of spaces and data, complexity theory addresses a fundamental question: Can these tools be applied effectively? It helps us evaluate the computational cost of solving problems and identify which challenges are feasible to tackle.
-            </p>
-            <p>
-                Many problems I work on are <strong>NP-hard</strong>, meaning that solving them outright for large inputs could take longer than the age of the universe. Complexity theory offers frameworks for exploring why problems are difficult and how we can make progress. For example:
-            </p>
-            <ul>
-                <li>Some problems allow for approximate solutions, where we trade precision for feasibility.</li>
-                <li>Others become easier when we focus on specific features, reducing the computational burden.</li>
-            </ul>
-        </section>
+<!-- Complexity Theory Section -->
+<section>
 
-        <!-- Parameterized Complexity Section -->
-        <section>
-            <h2>Parameterized Complexity: A Fine-Grained Perspective</h2>
-            <p>
-                Parameterized complexity builds on the ideas of complexity theory by zooming in on specific aspects of problems that influence their difficulty. It acknowledges that not all parts of a problem are equally hard to solve. Instead of treating a problem as a whole, parameterized algorithms focus on well-chosen parameters that can simplify the task.
-            </p>
-            <p>
-                Imagine trying to optimize a delivery route across hundreds of cities. If you know the number of delivery hubs is small, you can design algorithms that focus on just those hubs, ignoring less critical details. Similarly, parameterized complexity allows us to isolate and address the most critical aspects of computational problems.
-            </p>
-            <p>
-                In my work, I use parameterized complexity to study fundamental problems in topology, such as <strong>homology localization</strong>—identifying significant loops or structures in spaces. By making these topological properties computationally concrete, we can bridge the gap between abstract mathematics and practical computation.
-            </p>
-        </section>
+    <h2>Complexity Theory: Understanding Computational Limits</h2>
+    <p>
+        If you've ever struggled with an impossibly hard problem, you might have gone through something like this:
+    </p>
+    
+    <!-- Comic Panel 1 -->
+    <figure style="text-align: center;">
+        <img src="images/cartoon1.png" alt="Stage 1: Self-doubt" style="width:80%; height:auto; margin:20px auto;">
+    </figure>
+    
+    <p>
+        First, self-doubt. You try every algorithm you can think of, but nothing works.  
+        Maybe the problem is just difficult. Maybe you are just not clever enough to solve it.
+    </p>
+    
+    <!-- Comic Panel 2 -->
+    <figure style="text-align: center;">
+        <img src="images/cartoon2.png" alt="Stage 2: Realization" style="width:80%; height:auto; margin:20px auto;">
+    </figure>
+    
+    <p>
+        Then, the realization: maybe it’s not just you—maybe no one can solve it efficiently.  
+        But proving this is surprisingly hard. In fact, determining whether a problem can truly be solved efficiently  
+        is the biggest open problem in computer science.  
+        <a href="https://www.claymath.org/millennium/p-vs-np/" target="_blank">Solving it is literally a million-dollar question.</a>
+    </p>
+    
+    <p>
+        So where does that leave us? We can’t solve it. We can’t even prove that we can’t solve it.  
+        We’re stuck.
+    </p>
+    
+    <p>
+        But if no one else has solved it either, maybe we’re onto something.  
+        If we can’t find a solution, proving that it’s hard is the next best thing.  
+    </p>
+    
+    <!-- Comic Panel 3 (NOW in the right place) -->
+    <figure style="text-align: center;">
+        <img src="images/cartoon3.png" alt="Stage 3: Theoretical triumph" style="width:80%; height:auto; margin:20px auto;">
+    </figure>
+    
+    <p>
+        This is where NP-completeness comes in. We can’t prove a problem is hard directly,  
+        so we take a different approach: we link it to other problems we already believe are hard.  
+    </p>
+    
+    <p>
+        Think of it like a row of dominoes. Instead of proving that one specific domino is impossible to push over,  
+        we show that if you could push this one over, the entire row would fall.  
+    </p>
+    
+    <!-- Comic Panel 3 (NOW in the right place) -->
+    <figure style="text-align: center;">
+        <img src="images/dominos.gif" alt="Infinite dominoes" style="width:80%; height:auto; margin:20px auto;">
+    </figure>
+
+    <p>
+        Since no one has ever managed to knock down the last domino,  
+        we take that as strong evidence that the first one won’t fall either.  
+        In complexity theory, this is called a reduction: if solving one problem would also solve all the others,  
+        we assume the first problem is at least as hard as the rest.
+    </p>    
+    
+    <p>
+        Many problems I work on are <strong>NP-hard</strong>, meaning that solving them outright for large inputs is likely infeasible.  
+        Complexity theory offers tools to analyze these problems and find ways forward. For example:
+    </p>
+
+    <ul>
+        <li>Some problems allow for approximate solutions, where we trade precision for feasibility.</li>
+        <li>Others become easier when we focus on specific features, reducing the computational burden.</li>
+    </ul>
+
+</section>
+
+
+
+<!-- Parameterized Complexity Section -->
+<section>
+    <h2>Parameterized Complexity: A Fine-Grained Perspective</h2>
+    <p>
+        Parameterized complexity recognizes that not all parts of a problem are equally hard.  
+        Instead of treating everything as one big challenge, we focus on the core difficulty.  
+    </p>
+
+    <!-- Palm Kernel Image -->
+    <figure style="text-align: center;">
+        <img src="images/palmkernel.jpg" alt="Palm fruit kernel" 
+        title="Finding the hard core of a problem and stripping away the easy parts." 
+        style="width:100%; height:auto; margin:20px auto;">
+        <figcaption>Finding the hard core of a problem and stripping away the easy parts.</figcaption>
+    </figure>
+
+    <p>
+        Many problems have an easy outer layer and a hard inner core.  
+        If we can strip away the easy part quickly, the remaining problem becomes much smaller and faster to solve.  
+    </p>
+
+    <p>
+        I use this idea to study problems in topology, such as homology localization,  
+        where isolating key structures makes computation more efficient.
+    </p>
+</section>
+
 
         <!-- Intersection Section -->
         <section>
@@ -189,7 +269,7 @@
                 For example:
             </p>
             <ul>
-                <li>Complexity theory tells us why computing persistent homology for large datasets is hard.</li>
+                <li>Complexity theory tells us why computing geometric representatives for persistent homology for large datasets is hard.</li>
                 <li>Parameterized complexity helps us design algorithms that focus on key features, like the number of dimensions or specific regions of interest, to make these computations feasible.</li>
             </ul>
             <p>
