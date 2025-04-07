@@ -408,3 +408,57 @@ body.dark-mode a {
 .publication-content p {
     font-size: 1.6rem;
 }
+
+/* Nav container */
+.desktop-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    gap: 25px;
+  }
+  
+  /* Hover subnav container (the second row) */
+  .hover-subnav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-color);
+    padding: 10px 20px;
+    border-top: 2px solid var(--accent-primary);
+    border-bottom: 2px solid var(--accent-primary);
+    white-space: nowrap;
+    z-index: 100;
+    width: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .hover-subnav a {
+    font-family: var(--font-light), monospace;
+    margin: 0 12px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  
+  .hover-subnav a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+  }
+  
+  /* Show on hover */
+  .has-hover-subnav:hover .hover-subnav {
+    display: flex;
+    justify-content: center;
+  }
+  
+
+  .footnote {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 1em;
+}

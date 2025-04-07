@@ -39,7 +39,70 @@ if (burger && overlay && closeOverlay) {
 }
 
 
-// Load navigation bar
-$(function(){
-  $("#nav-placeholder").load("nav.html");
-});
+  // Load header
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+
+  // Load nav + highlight active link
+  fetch("nav.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+
+      const currentPage = window.location.pathname.split("/").pop();
+      const links = document.querySelectorAll('nav a, .overlay-menu-items a');
+      links.forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+  // Load footer
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+
+
+    const page = window.location.pathname;
+
+    // Load Header
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+  
+    // Load Main Nav
+    fetch("nav.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("nav-placeholder").innerHTML = data;
+      });
+  
+    // Load Footer
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      });
+  
+    // Load correct subnav based on page
+    if (page.includes("research")) {
+      fetch("subnav-research.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("subnav-placeholder").innerHTML = data;
+        });
+    } else if (page.includes("teaching")) {
+      fetch("subnav-teaching.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("subnav-placeholder").innerHTML = data;
+        });
+    }
