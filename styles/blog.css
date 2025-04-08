@@ -1,0 +1,66 @@
+/* blog.css */
+
+body.blog-page {
+    font-family: Georgia, serif;
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #111;
+    background-color: #fff;
+  }
+  
+  .blog-page h1,
+  .blog-page h2,
+  .blog-page h3 {
+    font-family: system-ui, sans-serif;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-page p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .blog-page ul,
+  .blog-page ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-page blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 1rem;
+    color: #555;
+    font-style: italic;
+  }
+  
+  .blog-page a {
+    color: #0077cc;
+    text-decoration: underline;
+  }
+  
+  .blog-page a:hover {
+    text-decoration: none;
+  }
+  
+
+.blog-nav {
+    text-align: center;
+    margin: 3rem 0;
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+  }
+  
+  .blog-nav a {
+    color: #0077cc;
+    text-decoration: none;
+    margin: 0 0.75rem;
+  }
+  
+  .blog-nav a:hover {
+    text-decoration: underline;
+  }
+  
