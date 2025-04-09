@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://erlraavaa314.github.io/Educator-Researcher-Velociraptor/index.html</loc>
-  </url>
-  <url>
-    <loc>https://erlraavaa314.github.io/Educator-Researcher-Velociraptor/about.html</loc>
-  </url>
-  <url>
-    <loc>https://erlraavaa314.github.io/Educator-Researcher-Velociraptor/research.html</loc>
-  </url>
-  <url>
-    <loc>https://erlraavaa314.github.io/Educator-Researcher-Velociraptor/teaching.html</loc>
-  </url>
-  <url>
-    <loc>https://erlraavaa314.github.io/Educator-Researcher-Velociraptor/publications.html</loc>
-  </url>
-  <url>
-    <loc>https://erlraavaa314.github.io/Educator-Researcher-Velociraptor/contact.html</loc>
-  </url>
+
+  <!-- Main pages -->
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/index.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/about.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/research.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/teaching.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/publications.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/contact.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/blog.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/complexity.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/courses.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/forde.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/outreach.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/projects.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/students.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/topology.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/robotics.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/democraticlearning.html</loc></url>
+
+  <!-- Blog posts -->
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/blog/DL_000_Why_democratic_learning.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/blog/DL_001_What_are_paradigms.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/blog/DL_002_How_are_paradigms_built.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/blog/DL_003_A_sketch_of_a_democratic_education.html</loc></url>
+  <url><loc>https://erlraavaa314.github.io/Erlend-Raa-Vaagset/blog/DL_004_The_Preparadigmatic_Landscape.html</loc></url>
+
 </urlset>
