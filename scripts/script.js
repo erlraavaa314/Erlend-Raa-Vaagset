@@ -1,19 +1,15 @@
 // ----------------------------
-// Theme Toggle: Light → Dark → Terminal
+// Theme Toggle: Light → Dark → Terminal → Fjord
 // ----------------------------
-function loadMatrixRain() {
-  // Avoid loading multiple times
-  if (document.getElementById('matrix-canvas')) return;
 
-  // If already loaded, just run it
+function loadMatrixRain() {
+  if (document.getElementById('matrix-canvas')) return;
   if (typeof window.startMatrixRain === 'function') {
     window.startMatrixRain();
     return;
   }
-
-  // Otherwise, load script and run after load
   const script = document.createElement('script');
-  script.src = 'scripts/matrix-rain.js'; // ✅ path must be correct
+  script.src = 'scripts/matrix-rain.js';
   script.onload = () => {
     if (typeof window.startMatrixRain === 'function') {
       window.startMatrixRain();
@@ -27,7 +23,6 @@ function loadMatrixRain() {
   document.body.appendChild(script);
 }
 
-
 function removeMatrixRain() {
   const canvas = document.getElementById('matrix-canvas');
   if (canvas) {
@@ -35,32 +30,45 @@ function removeMatrixRain() {
   }
 }
 
-
 // Apply the selected theme
 function applyTheme(theme) {
-  document.body.classList.remove('dark-mode', 'terminal-mode');
+  document.body.classList.remove('dark-mode', 'terminal-mode', 'fjord-mode');
   localStorage.setItem('theme', theme);
 
   const themeToggle = document.getElementById('theme-toggle');
 
   if (theme === 'dark') {
     document.body.classList.add('dark-mode');
-    themeToggle.innerHTML = '🌙';
+    themeToggle.innerHTML = '🖍️'; // Crayon for blackboard dark mode
     removeMatrixRain();
   } else if (theme === 'terminal') {
     document.body.classList.add('terminal-mode');
-    themeToggle.innerHTML = '🖥️';
+    themeToggle.innerHTML = '🖥️'; // Monitor for terminal mode
     loadMatrixRain();
+  } else if (theme === 'fjord') {
+    document.body.classList.add('fjord-mode');
+    themeToggle.innerHTML = '🏔️'; // Mountain for fjord mode
+    removeMatrixRain();
   } else {
-    themeToggle.innerHTML = '☀️';
+    themeToggle.innerHTML = '🪶'; // Feather for light (paper) mode
     removeMatrixRain();
   }
 }
 
-// Cycle through the 3 modes
+
+// Cycle through the 4 modes
 function cycleTheme() {
   const current = localStorage.getItem('theme') || 'light';
-  const next = current === 'light' ? 'dark' : current === 'dark' ? 'terminal' : 'light';
+  let next;
+  if (current === 'light') {
+    next = 'dark';
+  } else if (current === 'dark') {
+    next = 'terminal';
+  } else if (current === 'terminal') {
+    next = 'fjord';
+  } else {
+    next = 'light';
+  }
   applyTheme(next);
 }
 
@@ -79,7 +87,6 @@ fetch("header.html")
       themeToggle.addEventListener('click', cycleTheme);
     }
 
-    // Mobile Menu Toggle
     const burger = document.getElementById('menu-toggle');
     const overlay = document.getElementById('overlay');
     const closeOverlay = document.getElementById('close-overlay');

@@ -56,6 +56,70 @@ ul li {
 }
 
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body.fjord-mode {
+    --bg-color: #ffffff;
+    --text-color: #1a2b33;
+    --accent-primary: #3b6e8f;
+    --accent-secondary: #2d5d73;
+    --header-footer-color: #1a2b33;
+    --header-subtitle-color: #3a4a53;
+
+    font-family: 'Courier Prime', monospace;
+    font-weight: 600;
+
+    background-color: var(--bg-color);
+    background-image:
+        url('../textures/fjord-theme.png'),
+        url('../textures/paper.png');
+    background-repeat:
+        repeat-y,
+        repeat;
+    background-position:
+        center top,
+        center top;
+    background-size:
+        100% auto,
+        auto;
+    background-attachment:
+        scroll,
+        scroll;
+    background-blend-mode: multiply;
+}
+
+/* Soft white mist (optional, can be tuned) */
+body.fjord-mode::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* Overlay to soften everything */
+body.fjord-mode::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+
 /* Rest of your styles remain unchanged... */
 
     
