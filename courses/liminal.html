@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Erlend Raa Vågset – Courses at HVL</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #fcfcfc;
+      margin: 0;
+      padding: 2rem;
+      color: #222;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    p.intro {
+      font-size: 1rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0.5rem auto 1rem auto;
+    }
+
+    ul.course-list {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+    }
+
+    ul.course-list li {
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+      transition: background 0.2s ease;
+    }
+
+    ul.course-list li:hover {
+      background: #f0f0f0;
+    }
+
+    ul.course-list a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+      padding: 1rem;
+      font-size: 1.1rem;
+    }
+
+    ul.course-list .inactive a {
+      color: #999;
+      pointer-events: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    footer img {
+      display: block;
+      margin: 2rem auto 1rem auto;
+      max-width: 300px;
+      width: 100%;
+      opacity: 0.85;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Erlend Raa Vågset – Courses at HVL</h1>
+    <p class="intro">
+      A quiet place between destinations. From here, paths lead outward—each to a different course I teach at HVL.
+    </p>
+  </header>
+
+  <ul class="course-list">
+    <li><a href="./DAT102/">DAT102 – Algorithms and Data Structures</a></li>
+    <li class="inactive"><a href="#">DAT108 – Web Programming (coming soon)</a></li>
+    <li class="inactive"><a href="#">DAT158 – Operating Systems (coming soon)</a></li>
+  </ul>
+
+  <footer>
+    <img src="narnia.png" alt="A quiet forest suggesting a threshold between worlds" />
+    <div>© 2025 Erlend Raa Vågset – Hosted via GitHub Pages</div>
+  </footer>
+
+</body>
+</html>
